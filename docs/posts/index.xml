@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>txn2 - Microservice Applications</title>
-    <link>https://txn2.com/</link>
-    <description>Recent content on txn2 - Microservice Applications</description>
+    <title>Posts on txn2 - Microservice Applications</title>
+    <link>https://txn2.com/posts/</link>
+    <description>Recent content in Posts on txn2 - Microservice Applications</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Apr 2018 09:56:27 -0700</lastBuildDate>
     
-	<atom:link href="https://txn2.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://txn2.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
