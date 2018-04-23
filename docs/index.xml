@@ -13,11 +13,101 @@
     
     <item>
       <title>Welcome</title>
-      <link>https://txn2.com/posts/welcome/</link>
+      <link>https://txn2.com/post/welcome/</link>
       <pubDate>Mon, 23 Apr 2018 09:56:27 -0700</pubDate>
       
-      <guid>https://txn2.com/posts/welcome/</guid>
+      <guid>https://txn2.com/post/welcome/</guid>
       <description>Welcome to txn2.</description>
+    </item>
+    
+    <item>
+      <title>asws</title>
+      <link>https://txn2.com/utils/asws/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/utils/asws/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;asws&lt;/strong&gt; - is a very small high performance statis web server for IOT devices. &lt;strong&gt;asws&lt;/strong&gt; also exposes a REST based JSON api endpoint for exposing file systems to other services or front-end GUIs.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>dmk</title>
+      <link>https://txn2.com/utils/dmk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/utils/dmk/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;dmk&lt;/strong&gt; - Data Migration Kit is a declarative based data migration utility. Move data between a number of sources and destinations including MySql, Cassandra, CSV and API endpoints.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>irSync</title>
+      <link>https://txn2.com/data/irsync/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/data/irsync/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;irSync&lt;/strong&gt; provides an rsync-on-interval container especially useful for IOT devices, or any remote node that needs to keep a collection of files up to date with a central server.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>rtChain</title>
+      <link>https://txn2.com/data/rtchain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/data/rtchain/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;rtChain&lt;/strong&gt; is a blockchain based message queue. Use for public or private ledger opperations aginst IOT meesages, supporting smart contracts.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>rtbeat</title>
+      <link>https://txn2.com/data/rtbeat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/data/rtbeat/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;rtbeat&lt;/strong&gt; is a server side endpoint for IOT or any remote data producer. &lt;strong&gt;rtbeat&lt;/strong&gt; consumes JSON POST data and publish as events into elasticsearch, logstash, kafka, redis or directly or plain files.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;rtbeat&lt;/strong&gt; adds another level of high availability to data pipelines by managing backpreasure, service disruptions and outages from connected data stores.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>rxtx</title>
+      <link>https://txn2.com/data/rxtx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/data/rxtx/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;rxtx&lt;/strong&gt; is a queue based data collector and transmitter for IOT or any type of remote node. Useful for online/offline data collection, back pressure buffering and general message queuing. Use rxtx with &lt;strong&gt;rtbeat&lt;/strong&gt; to consume data and publish as events into elasticsearch, logstash, kafka, redis or directly to log files.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>txAgent</title>
+      <link>https://txn2.com/configuration/txagent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/configuration/txagent/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;txAgent&lt;/strong&gt; is a simplified device provisioning container. tsAgents package container, network and file system, definitions in a single deployable Docker image.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>txWifi</title>
+      <link>https://txn2.com/configuration/txwifi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/configuration/txwifi/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;txWifi&lt;/strong&gt; provides a REST based services to manage and configure wifi station and client modes for IOT devices. &lt;strong&gt;txWifi&lt;/strong&gt; can allow wifi configuration to be automated by other nodes or used a backend services for human facing GUIs.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

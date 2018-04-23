@@ -18,13 +18,13 @@ publishDir = "docs"
     showSubheader = true
     showServices = true
     showRecentWorks = false
-    showDownload = true
+    showDownload = false
     showClients = false
 
     footerEnableContact = false
     footerEnableFollowme = false
     footerEnableTextWidget = true
-    footerEnableFormWidget = true
+    footerEnableFormWidget = false
 
 [[menu.main]]
     name = "home"
@@ -34,7 +34,10 @@ publishDir = "docs"
     name = "blog"
     url = "/post/"
     weight = 5
-
+[[menu.main]]
+    name = "github"
+    url = "https://github.com/txn2"
+    weight = 5
 
 [params.google.analytics]
     trackerID = "GA-000000000-0"

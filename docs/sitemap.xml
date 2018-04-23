@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://txn2.com/posts/welcome/</loc>
+    <loc>https://txn2.com/post/welcome/</loc>
     <lastmod>2018-04-23T09:56:27-07:00</lastmod>
   </url>
   
@@ -13,7 +13,17 @@
   </url>
   
   <url>
-    <loc>https://txn2.com/posts/</loc>
+    <loc>https://txn2.com/configuration/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/data/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/post/</loc>
     <lastmod>2018-04-23T09:56:27-07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -21,6 +31,43 @@
   <url>
     <loc>https://txn2.com/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/utils/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/utils/asws/</loc>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/utils/dmk/</loc>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/data/irsync/</loc>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/data/rtchain/</loc>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/data/rtbeat/</loc>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/data/rxtx/</loc>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/configuration/txagent/</loc>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/configuration/txwifi/</loc>
   </url>
   
   <url>
