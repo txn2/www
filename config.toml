@@ -1,0 +1,4 @@
+baseURL = "https://txn2.com/"
+languageCode = "en-us"
+title = "txn2 - Microservice Applications"
+theme = "ananke"
