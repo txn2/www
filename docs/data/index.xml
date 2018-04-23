@@ -38,9 +38,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://txn2.com/data/rtbeat/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;rtbeat&lt;/strong&gt; is a server side endpoint for IOT or any remote data producer. &lt;strong&gt;rtbeat&lt;/strong&gt; consumes JSON POST data and publish as events into elasticsearch, logstash, kafka, redis or directly or plain files.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;rtbeat&lt;/strong&gt; is a server side endpoint for IOT or any remote data producer. &lt;strong&gt;rtbeat&lt;/strong&gt; consumes JSON POST data and publishes them as events into elasticsearch, logstash, kafka, redis or log files.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;rtbeat&lt;/strong&gt; adds another level of high availability to data pipelines by managing backpreasure, service disruptions and outages from connected data stores.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;rtbeat&lt;/strong&gt; adds another level of high availability to data pipelines by managing backpreasure, service disruptions or outages from connected data stores.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

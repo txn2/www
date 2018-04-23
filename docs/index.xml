@@ -70,9 +70,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://txn2.com/data/rtbeat/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;rtbeat&lt;/strong&gt; is a server side endpoint for IOT or any remote data producer. &lt;strong&gt;rtbeat&lt;/strong&gt; consumes JSON POST data and publish as events into elasticsearch, logstash, kafka, redis or directly or plain files.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;rtbeat&lt;/strong&gt; is a server side endpoint for IOT or any remote data producer. &lt;strong&gt;rtbeat&lt;/strong&gt; consumes JSON POST data and publishes them as events into elasticsearch, logstash, kafka, redis or log files.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;rtbeat&lt;/strong&gt; adds another level of high availability to data pipelines by managing backpreasure, service disruptions and outages from connected data stores.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;rtbeat&lt;/strong&gt; adds another level of high availability to data pipelines by managing backpreasure, service disruptions or outages from connected data stores.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -94,7 +94,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://txn2.com/configuration/txagent/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;txAgent&lt;/strong&gt; is a simplified device provisioning container. tsAgents package container, network and file system, definitions in a single deployable Docker image.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;txAgent&lt;/strong&gt; is a simplified device provisioning container. tsAgents package container, network and file system definitions into a single deployable Docker image.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -105,7 +105,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://txn2.com/configuration/txwifi/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;txWifi&lt;/strong&gt; provides a REST based services to manage and configure wifi station and client modes for IOT devices. &lt;strong&gt;txWifi&lt;/strong&gt; can allow wifi configuration to be automated by other nodes or used a backend services for human facing GUIs.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;txWifi&lt;/strong&gt; provides REST based services to manage and configure wifi station and client modes for IOT devices. &lt;strong&gt;txWifi&lt;/strong&gt; allows wifi configuration and state to be automated by other nodes or used a backend services for user facing GUIs.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
