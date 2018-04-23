@@ -7,7 +7,7 @@ publishDir = "docs"
 [params]
     name = "txn2"
     description = "Microservice Applications"
-    email = "cjimti@gmail.com"
+    email = ""
     phone = ""
     address = ""
     year = 2018
@@ -17,12 +17,12 @@ publishDir = "docs"
 
     showSubheader = true
     showServices = true
-    showRecentWorks = true
+    showRecentWorks = false
     showDownload = true
-    showClients = true
+    showClients = false
 
-    footerEnableContact = true
-    footerEnableFollowme = true
+    footerEnableContact = false
+    footerEnableFollowme = false
     footerEnableTextWidget = true
     footerEnableFormWidget = true
 
