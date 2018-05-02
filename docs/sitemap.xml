@@ -13,11 +13,6 @@
   </url>
   
   <url>
-    <loc>https://txn2.com/configuration/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://txn2.com/data/</loc>
     <priority>0</priority>
   </url>
@@ -25,6 +20,11 @@
   <url>
     <loc>https://txn2.com/post/</loc>
     <lastmod>2018-04-23T09:56:27-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/services/</loc>
     <priority>0</priority>
   </url>
   
@@ -39,7 +39,7 @@
   </url>
   
   <url>
-    <loc>https://txn2.com/utils/asws/</loc>
+    <loc>https://txn2.com/services/asws/</loc>
   </url>
   
   <url>
@@ -63,11 +63,11 @@
   </url>
   
   <url>
-    <loc>https://txn2.com/configuration/txagent/</loc>
+    <loc>https://txn2.com/services/txagent/</loc>
   </url>
   
   <url>
-    <loc>https://txn2.com/configuration/txwifi/</loc>
+    <loc>https://txn2.com/services/txwifi/</loc>
   </url>
   
   <url>

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.39" />
     <meta charset="utf-8">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
 
-    <title>txn2 - Microservice Applications</title>
+    <title>asws</title>
 
     <link rel="apple-touch-icon" sizes="57x57"   href="https://txn2.com//images/icon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60"   href="https://txn2.com//images/icon/apple-icon-60x60.png">
@@ -94,123 +93,50 @@
 
 </header>
 
+
 <main id="main">
 
 	<div class="container">
 
-        
-            <div class="row section topspace">
-    <div class="col-md-12">
-        <p class="lead text-center text-muted">
-            TXN2 is a collection of opensource applications, each aimed at achieving a small goal, centered on collecting, moving, buffering, queueing, processing or presenting data. TXN2 applications are meant to work together or on their own to solve common and recurring requirements for many web and IOT projects.
-        </p>
-        <p class="lead text-center text-muted">
-            TXN2 projects leverage the Go programming language for services and utilities, REACT for web UIs, Docker and Kubernetes configurations for encapsulation and deployment.
-        </p>
-        <p class="lead text-center text-muted">
-            Email human@txn2.com if you are interested in contributing or becoming a member.
-        </p>
-    </div>
-</div> 
+		<div class="row topspace">
+			<div class="col-sm-8 col-sm-offset-2">
 
-        
+ 				<article class="post">
+					<header class="entry-header">
+ 						<div class="entry-meta">
+ 							<span class="posted-on"><time class="entry-date published" date="0001-01-01 00:00:00 &#43;0000 UTC">January 1, 0001</time></span>
+ 						</div>
+ 						<h1 class="entry-title"><a href="https://txn2.com/services/asws/" rel="bookmark">asws</a></h1>
+					</header>
+					<div class="entry-content">
+						<p><strong>asws</strong> is a small, high performance static web server for IOT devices. <strong>asws</strong> also exposes a REST based JSON api endpoint for describing file systems to other services or frontend user GUIs.</p>
 
-        
-            <div class="row section featured topspace">
+<p></p>
+					</div>
+				</article>
 
-    <h2 class="section-title"><span>Moving Data</span></h2>
+			</div>
+		</div> 
 
-    <div class="">
-        
-        <div class="col-sm-6 col-md-3">
-            <h3 class="text-center">irSync</h3>
-            <p><p><strong>irSync</strong> provides an rsync-on-interval container especially useful for IOT devices, or any remote node that needs to keep a collection of files up to date with a central server.</p>
+        <div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
 
-<p></p></p>
-            
-        </div>
-        
-        <div class="col-sm-6 col-md-3">
-            <h3 class="text-center">rtChain</h3>
-            <p><p><strong>rtChain</strong> is a blockchain based message queue. Use for public or private ledger opperations aginst IOT meesages, supporting smart contracts.</p>
+				<div id="share">
+                    
+				</div>
+			</div>
+		</div> 
+		<div class="clearfix"></div>
 
-<p></p></p>
-            
-        </div>
-        
-        <div class="col-sm-6 col-md-3">
-            <h3 class="text-center">rtbeat</h3>
-            <p><p><strong>rtBeat</strong> is a server side endpoint for IOT or any remote data producer. <strong>rtbeat</strong> consumes JSON POST data and publishes them as events into elasticsearch, logstash, kafka, redis or log files.</p>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
 
-<p><strong>rtBeat</strong> adds another level of high availability to data pipelines by managing backpreasure, service disruptions or outages from connected data stores.</p>
-
-<p></p></p>
-            
-        </div>
-        
-        <div class="col-sm-6 col-md-3">
-            <h3 class="text-center">rxtx</h3>
-            <p><p><strong>rxtx</strong> is a queue based data collector and transmitter for IOT or any type of remote node. Useful for online/offline data collection, back pressure buffering and general message queuing. Use rxtx with <strong>rtbeat</strong> to consume data and publish as events into elasticsearch, logstash, kafka, redis or directly to log files.</p>
-
-<p></p></p>
-            
-        </div>
-        
-    </div>
-
-    <h2 class="section-title"><span>Services</span></h2>
-
-    <div class="">
-        
-        <div class="col-sm-6 col-md-3">
-            <h3 class="text-center">asws</h3>
-            <p><p><strong>asws</strong> is a small, high performance static web server for IOT devices. <strong>asws</strong> also exposes a REST based JSON api endpoint for describing file systems to other services or frontend user GUIs.</p>
-
-<p></p></p>
-            
-        </div>
-        
-        <div class="col-sm-6 col-md-3">
-            <h3 class="text-center">txAgent</h3>
-            <p><p><strong>txAgent</strong> is a simplified device provisioning container. tsAgents package container, network and file system definitions into a single deployable Docker image.</p>
-
-<p></p></p>
-            
-        </div>
-        
-        <div class="col-sm-6 col-md-3">
-            <h3 class="text-center">txWifi</h3>
-            <p><p><strong>txWifi</strong> provides REST based services to manage and configure wifi station and client modes for IOT devices. <strong>txWifi</strong> allows wifi configuration and state to be automated by other nodes or used a backend services for user facing GUIs.</p>
-
-<p></p></p>
-            
-        </div>
-        
-    </div>
-
-    <h2 class="section-title"><span>Utility</span></h2>
-
-    <div class="">
-        
-        <div class="col-sm-6 col-md-3">
-            <h3 class="text-center">dmk</h3>
-            <p><p><strong>dmk</strong> - Data Migration Kit is a declarative based data migration utility. Move data between a number of sources and destinations including MySql, Cassandra, CSV and API endpoints.</p>
-
-<p></p></p>
-            
-        </div>
-        
-    </div>
-
-</div> 
-
-        
-
-        
-
-        
-
-        
+				<div id="comments">
+                    
+				</div>
+			</div>
+		</div> 
+		<div class="clearfix"></div>
 
 	</div>	
 
