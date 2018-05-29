@@ -33,6 +33,17 @@
     </item>
     
     <item>
+      <title>txToken</title>
+      <link>https://txn2.com/services/txtoken/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/services/txtoken/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;txToken&lt;/strong&gt; is a small, high performance, microservice utility container used for adding JSON Web Token security to existing or new API endpoints. &lt;strong&gt;txToken&lt;/strong&gt; can be used as the foundation for building out OAuth, SSO and ACL functionality in your system.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>txWifi</title>
       <link>https://txn2.com/services/txwifi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
