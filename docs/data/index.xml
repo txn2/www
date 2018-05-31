@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data on txn2 - Microservice Applications</title>
+    <link>https://txn2.com/data/</link>
+    <description>Recent content in Data on txn2 - Microservice Applications</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://txn2.com/data/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>irSync</title>
+      <link>https://txn2.com/data/irsync/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/data/irsync/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;irSync&lt;/strong&gt; provides an rsync-on-interval container especially useful for IOT devices, or any remote node that needs to keep a collection of files up to date with a central server.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>rtChain</title>
+      <link>https://txn2.com/data/rtchain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/data/rtchain/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;rtChain&lt;/strong&gt; is a blockchain based message queue. Use for public or private ledger opperations aginst IOT meesages, supporting smart contracts.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>rtbeat</title>
+      <link>https://txn2.com/data/rtbeat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/data/rtbeat/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;rtBeat&lt;/strong&gt; is a server side endpoint for IOT or any remote data producer. &lt;strong&gt;rtbeat&lt;/strong&gt; consumes JSON POST data and publishes them as events into elasticsearch, logstash, kafka, redis or log files.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;rtBeat&lt;/strong&gt; adds another level of high availability to data pipelines by managing backpreasure, service disruptions or outages from connected data stores.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>rxtx</title>
+      <link>https://txn2.com/data/rxtx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://txn2.com/data/rxtx/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;rxtx&lt;/strong&gt; is a queue based data collector and transmitter for IOT or any type of remote node. Useful for online/offline data collection, back pressure buffering and general message queuing. Use rxtx with &lt;strong&gt;rtbeat&lt;/strong&gt; to consume data and publish as events into elasticsearch, logstash, kafka, redis or directly to log files.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
