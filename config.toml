@@ -1,16 +1,16 @@
 baseURL = "https://txn2.com/"
 languageCode = "en-us"
-title = "txn2 - Microservice Applications"
+title = "txn2 - OSS Development"
 theme = "hugo-initio"
 publishDir = "docs"
 
 [params]
     name = "txn2"
-    description = "Microservice Applications"
+    description = "OSS Development"
     email = ""
     phone = ""
     address = ""
-    year = 2018
+    year = 2020
     background = ""
     favicon = "images/gt_favicon.png"
     DateForm = "January 2, 2006"
@@ -26,14 +26,6 @@ publishDir = "docs"
     footerEnableTextWidget = true
     footerEnableFormWidget = false
 
-[[menu.main]]
-    name = "home"
-    url = "/"
-    weight = 1
-[[menu.main]]
-    name = "blog"
-    url = "/post/"
-    weight = 5
 [[menu.main]]
     name = "github"
     url = "https://github.com/txn2"
