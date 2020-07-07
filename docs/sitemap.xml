@@ -1,6 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://txn2.com/post/</loc>
+    <lastmod>2018-04-23T09:56:27-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/</loc>
+    <lastmod>2018-04-23T09:56:27-07:00</lastmod>
+  </url>
   
   <url>
     <loc>https://txn2.com/post/welcome/</loc>
@@ -8,38 +18,15 @@
   </url>
   
   <url>
+    <loc>https://txn2.com/services/asws/</loc>
+  </url>
+  
+  <url>
     <loc>https://txn2.com/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://txn2.com/data/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://txn2.com/post/</loc>
-    <lastmod>2018-04-23T09:56:27-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://txn2.com/services/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://txn2.com/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://txn2.com/utils/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://txn2.com/services/asws/</loc>
   </url>
   
   <url>
@@ -51,15 +38,23 @@
   </url>
   
   <url>
-    <loc>https://txn2.com/data/rtchain/</loc>
-  </url>
-  
-  <url>
     <loc>https://txn2.com/data/rtbeat/</loc>
   </url>
   
   <url>
+    <loc>https://txn2.com/data/rtchain/</loc>
+  </url>
+  
+  <url>
     <loc>https://txn2.com/data/rxtx/</loc>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/services/</loc>
+  </url>
+  
+  <url>
+    <loc>https://txn2.com/tags/</loc>
   </url>
   
   <url>
@@ -75,9 +70,7 @@
   </url>
   
   <url>
-    <loc>https://txn2.com/</loc>
-    <lastmod>2018-04-23T09:56:27-07:00</lastmod>
-    <priority>0</priority>
+    <loc>https://txn2.com/utils/</loc>
   </url>
   
 </urlset>
