@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main id="main" class="page page--home">
 
-    {{/* ─── BLUEPRINT GRID OVERLAY ─────────────────────────────── */}}
+    {{/* BLUEPRINT GRID OVERLAY */}}
     <div class="blueprint" aria-hidden="true">
         <div class="blueprint__grid"></div>
         <div class="blueprint__crosshair blueprint__crosshair--tl"><span></span><span></span></div>
@@ -10,7 +10,7 @@
         <div class="blueprint__crosshair blueprint__crosshair--br"><span></span><span></span></div>
     </div>
 
-    {{/* ─── TOP RAIL ───────────────────────────────────────────── */}}
+    {{/* TOP RAIL */}}
     <header class="rail">
         <div class="rail__brand">
             <span class="rail__mark" aria-hidden="true">◐</span>
@@ -21,7 +21,7 @@
         <div class="rail__meta" aria-hidden="true">
             <span class="rail__rel">rel. {{ .Site.Params.version | default "dev" }}</span>
             <span class="rail__dot">●</span>
-            <span data-clock>—— UTC</span>
+            <span data-clock>·· UTC</span>
             <span class="rail__dot">●</span>
             <span>los angeles, ca</span>
         </div>
@@ -33,7 +33,7 @@
         </nav>
     </header>
 
-    {{/* ─── HERO ───────────────────────────────────────────────── */}}
+    {{/* HERO */}}
     <section class="hero">
         <div class="hero__stamp">
             <p class="hero__stamp__line">org / txn2</p>
@@ -95,10 +95,10 @@
         </aside>
     </section>
 
-    {{/* ─── MCP SERVERS (lead) ─────────────────────────────────── */}}
+    {{/* MCP SERVERS */}}
     <section class="section section--mcp" id="mcp">
         <header class="section__head section__head--mcp">
-            <p class="section__index">§ 01 — model context protocol servers</p>
+            <p class="section__index">§ 01 / model context protocol servers</p>
             <h2 class="section__title">
                 MCP servers for the <em class="serif">data stack</em>
             </h2>
@@ -108,15 +108,15 @@
         </header>
 
         <div class="mcp">
-            {{/* big card */}}
+            {{/* feature card */}}
             <article class="mcp__card mcp__card--feature">
                 <div class="mcp__feature__bg" aria-hidden="true"></div>
                 <p class="mcp__id">platform</p>
                 <h3 class="mcp__name mcp__name--big"><em class="serif">mcp-data-platform</em></h3>
-                <p class="mcp__tag">An AI assistant can run SQL — but it doesn't know that <code>cust_id</code> is PII, that the table was deprecated last month, or who to ask when something breaks. <strong>mcp-data-platform fixes that.</strong> It connects assistants to your data infrastructure and adds business context from your semantic layer. Query a Trino table and get its meaning, owners, quality scores, and deprecation warnings in the same response.</p>
+                <p class="mcp__tag">An AI assistant can run SQL, but it doesn't know that <code>cust_id</code> is PII, that the table was deprecated last month, or who to ask when something breaks. <strong>mcp-data-platform fixes that.</strong> It connects assistants to your data infrastructure and adds business context from your semantic layer. Query a Trino table and get its meaning, owners, quality scores, and deprecation warnings in the same response.</p>
                 <ul class="mcp__list">
                     <li>orchestrates <code>mcp-datahub</code>, <code>mcp-s3</code>, and <code>mcp-trino</code> behind a single endpoint</li>
-                    <li>bidirectional cross-injection — Trino results carry DataHub metadata; S3 reads carry lineage</li>
+                    <li>bidirectional cross-injection: Trino results carry DataHub metadata, S3 reads carry lineage</li>
                     <li>gateway toolkit re-exposes any third-party MCP server through unified auth, persona, and audit pipelines</li>
                     <li>operator admin portal for DB-backed, encrypted credential management</li>
                     <li>declarative cross-enrichment rules join proxied responses with Trino queries or DataHub lookups</li>
@@ -161,7 +161,7 @@ flowchart TD
             <article class="mcp__card">
                 <p class="mcp__id">sql · 02</p>
                 <h3 class="mcp__name">mcp-trino</h3>
-                <p class="mcp__tag">Connects Trino to MCP clients with an optional semantic layer. Surfaces business descriptions, ownership, and quality scores from metadata catalogs alongside query results — and marks sensitive columns so an AI assistant knows what not to read. Multi-cluster from one install.</p>
+                <p class="mcp__tag">Connects Trino to MCP clients with an optional semantic layer. Surfaces business descriptions, ownership, and quality scores from metadata catalogs alongside query results, and marks sensitive columns so an AI assistant knows what not to read. Multi-cluster from one install.</p>
                 <div class="mcp__links">
                     <a class="mcp__link mcp__link--primary" href="https://mcp-trino.txn2.com">mcp-trino.txn2.com →</a>
                     <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-trino" aria-label="mcp-trino source on GitHub">source ↗</a>
@@ -180,10 +180,10 @@ flowchart TD
         </div>
     </section>
 
-    {{/* ─── UTILITIES (kubefwd, txeh) ──────────────────────────── */}}
+    {{/* UTILITIES */}}
     <section class="section section--flagship" id="utilities">
         <header class="section__head">
-            <p class="section__index">§ 02 — utilities</p>
+            <p class="section__index">§ 02 / utilities</p>
             <h2 class="section__title">
                 <em class="serif">kubefwd</em> · txeh
             </h2>
@@ -194,22 +194,22 @@ flowchart TD
                 <header class="flagship__head">
                     <p class="flagship__id">FWD-001 · go · <a class="flagship__url" href="https://kubefwd.com">kubefwd.com ↗</a></p>
                     <h3 class="flagship__name">kubefwd</h3>
-                    <p class="flagship__tag">Develop locally, connect to Kubernetes — by service name.</p>
+                    <p class="flagship__tag">Develop locally, connect to Kubernetes by service name.</p>
                 </header>
                 <div class="flagship__body">
-                    <p>Bulk port-forwards every service in a namespace, assigns each a unique 127.x.x.x loopback IP, and writes the matching hostname entries into <code>/etc/hosts</code>. Your application's existing in-cluster connection strings — <code>http://api-gateway:8080</code>, <code>redis-cli -h cache</code>, <code>mysql -h database</code> — work unchanged on your laptop. Interactive TUI with live traffic, pod logs, and auto-reconnect on pod restart.</p>
+                    <p>Bulk port-forwards every service in a namespace, assigns each a unique 127.x.x.x loopback IP, and writes the matching hostname entries into <code>/etc/hosts</code>. Your application's existing in-cluster connection strings (<code>http://api-gateway:8080</code>, <code>redis-cli -h cache</code>, <code>mysql -h database</code>) work unchanged on your laptop. Interactive TUI with live traffic, pod logs, and auto-reconnect on pod restart.</p>
                 </div>
                 <div class="flagship__demo" aria-hidden="true">
                     <div class="terminal">
                         <div class="terminal__bar">
                             <span></span><span></span><span></span>
-                            <em>~ — kubefwd</em>
+                            <em>~ / kubefwd</em>
                         </div>
                         <pre class="terminal__body"><span class="t-prompt">$</span> brew install kubefwd
 <span class="t-prompt">$</span> sudo -E kubefwd svc -n my-namespace --tui
 <span class="t-mute">  press ? for help, q to quit</span>
 
-<span class="t-mute"># in another terminal — services resolve by name:</span>
+<span class="t-mute"># in another terminal, services resolve by name:</span>
 <span class="t-prompt">$</span> curl http://api-gateway:8080
 <span class="t-prompt">$</span> redis-cli -h cache -p 6379
 <span class="t-prompt">$</span> mysql -h database -P 3306</pre>
@@ -234,7 +234,7 @@ flowchart TD
                     <div class="terminal">
                         <div class="terminal__bar">
                             <span></span><span></span><span></span>
-                            <em>~ — txeh</em>
+                            <em>~ / txeh</em>
                         </div>
                         <pre class="terminal__body"><span class="t-prompt">$</span> brew install txn2/tap/txeh
 <span class="t-prompt">$</span> sudo txeh add 127.0.0.1 dev.local api.dev.local
@@ -256,10 +256,10 @@ flowchart TD
         </div>
     </section>
 
-    {{/* ─── REST OF THE STACK ──────────────────────────────────── */}}
+    {{/* OTHER COMPONENTS */}}
     <section class="section section--stack" id="stack">
         <header class="section__head">
-            <p class="section__index">§ 03 — other components</p>
+            <p class="section__index">§ 03 / other components</p>
             <h2 class="section__title">
                 Additional <em class="serif">repositories</em>
             </h2>
@@ -273,7 +273,7 @@ flowchart TD
                 <span class="stack__num">001</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/portpxy">portpxy</a>
-                    <p class="stack__desc">HTTP reverse proxy that routes requests to backend ports specified in the URL path (<code>/8081/foo</code> → <code>backend:8081/foo</code>). Useful for exposing dynamic ports — NiFi listeners, webhook receivers — through a single Kubernetes ingress.</p>
+                    <p class="stack__desc">HTTP reverse proxy that routes requests to backend ports specified in the URL path (<code>/8081/foo</code> → <code>backend:8081/foo</code>). Useful for exposing dynamic ports (NiFi listeners, webhook receivers) through a single Kubernetes ingress.</p>
                 </div>
                 <span class="stack__tag">network</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -282,7 +282,7 @@ flowchart TD
                 <span class="stack__num">002</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/jwtpxy">jwtpxy</a>
-                    <p class="stack__desc">Reverse proxy that pre-validates JWTs against Keycloak (or any OIDC realm) and forwards parsed claims as HTTP headers. Backend services read user, roles, and realm-access from headers — no token-handling library required.</p>
+                    <p class="stack__desc">Reverse proxy that pre-validates JWTs against Keycloak (or any OIDC realm) and forwards parsed claims as HTTP headers. Backend services read user, roles, and realm-access from headers. No token-handling library required.</p>
                 </div>
                 <span class="stack__tag">auth</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -309,7 +309,7 @@ flowchart TD
                 <span class="stack__num">005</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/asws">asws</a>
-                    <p class="stack__desc">Another static web server. Serves a directory and exposes its listing through a JSON REST API — useful for download pages, asset catalogs, and any web app that wants to enumerate what's on disk without writing a backend.</p>
+                    <p class="stack__desc">Another static web server. Serves a directory and exposes its listing through a JSON REST API. Useful for download pages, asset catalogs, and any web app that wants to enumerate what's on disk without writing a backend.</p>
                 </div>
                 <span class="stack__tag">web</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -318,7 +318,7 @@ flowchart TD
                 <span class="stack__num">006</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/mcp-common">mcp-common</a>
-                    <p class="stack__desc">Shared MCP Go library — interfaces, types, middleware patterns, and utilities. The substrate behind <code>mcp-trino</code>, <code>mcp-datahub</code>, <code>mcp-s3</code>, and any custom server that wants to drop into the same composable stack.</p>
+                    <p class="stack__desc">Shared MCP Go library: interfaces, types, middleware patterns, and utilities. The substrate behind <code>mcp-trino</code>, <code>mcp-datahub</code>, <code>mcp-s3</code>, and any custom server that wants to drop into the same composable stack.</p>
                 </div>
                 <span class="stack__tag">mcp · lib</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -335,10 +335,10 @@ flowchart TD
         </ol>
     </section>
 
-    {{/* ─── ABOUT ──────────────────────────────────────────────── */}}
+    {{/* ABOUT */}}
     <section class="section section--coda">
         <div class="coda">
-            <p class="coda__kicker">— about</p>
+            <p class="coda__kicker">// about</p>
             <p class="coda__big">
                 Components developed by <a href="https://imti.co"><em class="serif">Craig Johnston</em></a>, sponsored by <a href="https://deasil.works"><em class="serif">Deasil Works, Inc.</em></a> and <a href="https://plexara.io"><em class="serif">Plexara</em></a>. Released under the MIT or Apache 2.0 license.
             </p>
@@ -355,7 +355,7 @@ flowchart TD
 
 </main>
 
-{{/* ─── Mermaid (lazy-load only when a diagram is on the page) ── */}}
+{{/* Mermaid: lazy-load only when a diagram is on the page */}}
 <script type="module">
     if (document.querySelector('.mermaid')) {
         const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');

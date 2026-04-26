@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {{- $isHome := .IsHome -}}
-    {{- $title := cond $isHome (printf "%s — %s" .Site.Title .Site.Params.tagline) (printf "%s · %s — %s" .Title .Site.Title .Site.Params.tagline) -}}
+    {{- $title := cond $isHome (printf "%s · %s" .Site.Title .Site.Params.tagline) (printf "%s · %s · %s" .Title .Site.Title .Site.Params.tagline) -}}
     {{- $desc := .Site.Params.description -}}
     {{- if and (not $isHome) .Description }}{{ $desc = .Description }}{{ end -}}
     {{- if and (not $isHome) .Summary }}{{ $desc = .Summary | plainify | truncate 200 }}{{ end -}}
@@ -29,7 +29,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:alt" content="{{ .Site.Title }} — {{ .Site.Params.tagline }}">
+    <meta property="og:image:alt" content="{{ .Site.Title }} · {{ .Site.Params.tagline }}">
     <meta property="og:locale" content="en_US">
 
     {{/* Twitter */}}
@@ -46,7 +46,7 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "txn2",
-      "alternateName": "txn2 — open source components",
+      "alternateName": "txn2 / open source components",
       "url": "{{ .Site.BaseURL }}",
       "logo": "{{ "images/txn2-avatar-180.png" | absURL }}",
       "image": "{{ $ogImage }}",

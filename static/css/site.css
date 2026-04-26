@@ -1,5 +1,5 @@
 /* ────────────────────────────────────────────────────────────────
-   txn2 — field notes from production
+   txn2 / open source components
    a small engineering-journal aesthetic, dark canvas, signal orange
    ─────────────────────────────────────────────────────────────── */
 
@@ -63,7 +63,7 @@ body {
 a { color: inherit; text-decoration: none; }
 a:hover { color: var(--signal); }
 
-/* Skip-to-content link — visible on keyboard focus only */
+/* Skip-to-content link, visible on keyboard focus only */
 .skiplink {
     position: absolute;
     top: -100px;
@@ -88,7 +88,7 @@ a:hover { color: var(--signal); }
     outline-offset: 2px;
 }
 
-/* Keyboard focus styles — visible on every interactive element */
+/* Keyboard focus styles, visible on every interactive element */
 :focus-visible {
     outline: 2px solid var(--signal);
     outline-offset: 3px;

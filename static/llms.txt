@@ -6,9 +6,9 @@ Based in Los Angeles, California. Established 2017.
 
 ## Model Context Protocol servers
 
-- [mcp-data-platform](https://mcp-data-platform.txn2.com): An AI assistant can run SQL but doesn't know which columns contain PII, which tables were deprecated, or who owns the data. mcp-data-platform connects assistants to your data infrastructure and adds business context from your semantic layer (DataHub-anchored). Orchestrates mcp-s3, mcp-trino, and mcp-datahub behind a single endpoint with bidirectional cross-injection — Trino results carry DataHub metadata, S3 reads carry lineage. Includes a gateway toolkit that re-exposes any third-party MCP server through unified auth, persona, and audit pipelines, plus a DB-backed admin portal for encrypted credential management. Source: https://github.com/txn2/mcp-data-platform
+- [mcp-data-platform](https://mcp-data-platform.txn2.com): An AI assistant can run SQL but doesn't know which columns contain PII, which tables were deprecated, or who owns the data. mcp-data-platform connects assistants to your data infrastructure and adds business context from your semantic layer (DataHub-anchored). Orchestrates mcp-s3, mcp-trino, and mcp-datahub behind a single endpoint with bidirectional cross-injection: Trino results carry DataHub metadata, S3 reads carry lineage. Includes a gateway toolkit that re-exposes any third-party MCP server through unified auth, persona, and audit pipelines, plus a DB-backed admin portal for encrypted credential management. Source: https://github.com/txn2/mcp-data-platform
 - [mcp-s3](https://mcp-s3.txn2.com): Connects S3-compatible storage to MCP clients with read-only mode, size limits, prefix-based ACLs, and audit logging. Works with AWS S3, SeaweedFS, LocalStack, MinIO, or anything that speaks the S3 API. Multi-account from a single installation. Source: https://github.com/txn2/mcp-s3
-- [mcp-trino](https://mcp-trino.txn2.com): Connects Trino to MCP clients with an optional semantic layer. Surfaces business descriptions, ownership, and data quality from metadata catalogs alongside query results — and marks sensitive columns so AI assistants know what not to read. Multi-cluster from one install. Source: https://github.com/txn2/mcp-trino
+- [mcp-trino](https://mcp-trino.txn2.com): Connects Trino to MCP clients with an optional semantic layer. Surfaces business descriptions, ownership, and data quality from metadata catalogs alongside query results, and marks sensitive columns so AI assistants know what not to read. Multi-cluster from one install. Source: https://github.com/txn2/mcp-trino
 - [mcp-datahub](https://mcp-datahub.txn2.com): MCP server and Go library for DataHub. Search datasets, explore schemas, trace lineage, and read glossary terms, domains, and ownership. Ships as a standalone binary, a one-click Claude Desktop .mcpb bundle, or a composable library for building custom MCP servers. Source: https://github.com/txn2/mcp-datahub
 
 ## Utilities
@@ -18,12 +18,12 @@ Based in Los Angeles, California. Established 2017.
 
 ## Other components
 
-- [portpxy](https://github.com/txn2/portpxy): HTTP reverse proxy that routes requests to backend ports specified in the URL path (`/8081/foo` → `backend:8081/foo`). Useful for exposing applications that create dynamic HTTP listeners — NiFi processors, webhook receivers — through a single Kubernetes ingress.
-- [jwtpxy](https://github.com/txn2/jwtpxy): Reverse proxy that pre-validates JWTs against Keycloak (or any OIDC realm) and forwards parsed claims as HTTP headers. Backend services read user, roles, and realm-access from headers — no token-handling library required.
+- [portpxy](https://github.com/txn2/portpxy): HTTP reverse proxy that routes requests to backend ports specified in the URL path (`/8081/foo` becomes `backend:8081/foo`). Useful for exposing applications that create dynamic HTTP listeners (NiFi processors, webhook receivers) through a single Kubernetes ingress.
+- [jwtpxy](https://github.com/txn2/jwtpxy): Reverse proxy that pre-validates JWTs against Keycloak (or any OIDC realm) and forwards parsed claims as HTTP headers. Backend services read user, roles, and realm-access from headers. No token-handling library required.
 - [amp](https://github.com/txn2/amp): Kubernetes Admission Mutation Proxy. Forwards Pod admission reviews to a custom HTTP endpoint and applies the JSONPatch operations it returns. Originally built to inject per-user volumes and env vars into JupyterHub-spawned Pods.
 - [rxtx](https://github.com/txn2/rxtx): Queue-based data collector with store-and-forward. Buffers HTTP POST data when downstream is offline, replays when it comes back. Built for IoT and edge collection where the network blinks.
-- [asws](https://github.com/txn2/asws): Another static web server. Serves a directory and exposes its listing through a JSON REST API — useful for download pages, asset catalogs, and any web app that wants to enumerate what's on disk without writing a backend.
-- [mcp-common](https://github.com/txn2/mcp-common): Shared MCP Go library — interfaces, types, middleware patterns, and utilities. The substrate behind mcp-trino, mcp-datahub, mcp-s3, and any custom server that wants to drop into the same composable stack.
+- [asws](https://github.com/txn2/asws): Another static web server. Serves a directory and exposes its listing through a JSON REST API. Useful for download pages, asset catalogs, and any web app that wants to enumerate what's on disk without writing a backend.
+- [mcp-common](https://github.com/txn2/mcp-common): Shared MCP Go library: interfaces, types, middleware patterns, and utilities. The substrate behind mcp-trino, mcp-datahub, mcp-s3, and any custom server that wants to drop into the same composable stack.
 
 ## Optional
 

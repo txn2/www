@@ -9,7 +9,7 @@
 #   - Manual run (workflow_dispatch)       → live deploy with optional version override
 #   - Pull request targeting master        → build-only smoke test (no deploy)
 #
-# Master pushes do NOT deploy on their own — tag the commit to ship.
+# Master pushes do NOT deploy on their own. Tag the commit to ship.
 
 name: deploy
 

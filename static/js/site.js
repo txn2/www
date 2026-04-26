@@ -1,4 +1,4 @@
-/* txn2 — small bits of motion + a working clock */
+/* txn2 / small bits of motion + a working clock */
 
 (function () {
     'use strict';

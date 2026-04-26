@@ -6,7 +6,7 @@ publishDir = "docs"
 enableRobotsTXT = true
 enableGitInfo = true
 
-# No taxonomies — disable category/tag listings.
+# No taxonomies. Disable category/tag listings.
 disableKinds = ["taxonomy", "term"]
 
 [sitemap]
@@ -21,7 +21,7 @@ disableKinds = ["taxonomy", "term"]
     keywords = "kubernetes, kubefwd, txeh, mcp, model context protocol, trino, datahub, s3, devops, open source, golang, craig johnston, txn2, deasil works, plexara"
     ogImage = "images/og.png"
 
-# Google Analytics 4 (GA4) — replace with your G-XXXXXXXXXX measurement ID.
+# Google Analytics 4 (GA4). Set the G-XXXXXXXXXX measurement ID below.
 # Leave empty or comment out to disable analytics entirely.
 [params.googleAnalytics]
     id = ""
