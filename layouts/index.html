@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main class="page page--home">
+<main id="main" class="page page--home">
 
     {{/* ─── BLUEPRINT GRID OVERLAY ─────────────────────────────── */}}
     <div class="blueprint" aria-hidden="true">
@@ -25,7 +25,7 @@
             <span class="rail__dot">●</span>
             <span>los angeles, ca</span>
         </div>
-        <nav class="rail__nav">
+        <nav class="rail__nav" aria-label="primary">
             <a href="#cli">cli</a>
             <a href="#mcp">mcp</a>
             <a href="#stack">stack</a>
@@ -39,7 +39,7 @@
             <p class="hero__stamp__line">org / txn2</p>
             <p class="hero__stamp__line">est. 2017</p>
             <p class="hero__stamp__line">deasil works · plexara</p>
-            <p class="hero__stamp__line hero__stamp__line--rel">rel. {{ .Site.Params.version | default "dev" }}</p>
+            <p class="hero__stamp__line">los angeles, ca</p>
         </div>
 
         <h1 class="hero__display">
@@ -115,17 +115,17 @@
                         <pre class="terminal__body"><span class="t-prompt">$</span> kubefwd services -n the-project
 <span class="t-mute">INFO  Press [Ctrl-C] to stop forwarding.</span>
 <span class="t-mute">INFO  'cat /etc/hosts' to see fwd entries.</span>
-<span class="t-ok">  ✓ </span>postgres                    127.1.27.1:5432
-<span class="t-ok">  ✓ </span>redis                       127.1.27.2:6379
-<span class="t-ok">  ✓ </span>elastic                     127.1.27.3:9200
-<span class="t-ok">  ✓ </span>kafka-bootstrap             127.1.27.4:9092
-<span class="t-ok">  ✓ </span>api-internal                127.1.27.5:8080
-<span class="t-mute">INFO  forwarding 23 services across 3 namespaces.</span></pre>
+<span class="t-ok">  ✓ </span>postgres
+<span class="t-ok">  ✓ </span>redis
+<span class="t-ok">  ✓ </span>elastic
+<span class="t-ok">  ✓ </span>kafka-bootstrap
+<span class="t-ok">  ✓ </span>api-internal
+<span class="t-mute">INFO  forwarding services...</span></pre>
                     </div>
                 </div>
                 <footer class="flagship__foot">
                     <a class="btn btn--accent" href="https://kubefwd.com">visit kubefwd.com →</a>
-                    <a class="btn" href="https://github.com/txn2/kubefwd">source ↗</a>
+                    <a class="btn" href="https://github.com/txn2/kubefwd" aria-label="kubefwd source on GitHub">source ↗</a>
                 </footer>
             </article>
 
@@ -145,20 +145,17 @@
                             <em>~ — txeh</em>
                         </div>
                         <pre class="terminal__body"><span class="t-prompt">$</span> txeh add 127.0.0.1 dev.local api.dev.local
-<span class="t-ok">  ✓ </span>added 2 hostnames
 
 <span class="t-prompt">$</span> txeh list
 <span class="t-mute">  127.0.0.1     dev.local api.dev.local</span>
-<span class="t-mute">  127.1.27.1    postgres elastic kafka</span>
 <span class="t-mute">  ::1           localhost</span>
 
-<span class="t-prompt">$</span> txeh remove dev.local
-<span class="t-ok">  ✓ </span>removed 1 hostname</pre>
+<span class="t-prompt">$</span> txeh remove dev.local</pre>
                     </div>
                 </div>
                 <footer class="flagship__foot">
                     <a class="btn btn--accent" href="https://txeh.txn2.com">visit txeh.txn2.com →</a>
-                    <a class="btn" href="https://github.com/txn2/txeh">source ↗</a>
+                    <a class="btn" href="https://github.com/txn2/txeh" aria-label="txeh source on GitHub">source ↗</a>
                 </footer>
             </article>
         </div>
@@ -169,7 +166,7 @@
         <header class="section__head section__head--mcp">
             <p class="section__index">§ 02 — model context protocol servers</p>
             <h2 class="section__title">
-                MCP servers for the <em class="serif">data stack</em>.
+                MCP servers for the <em class="serif">data stack</em>
             </h2>
             <p class="section__lede">
                 Model Context Protocol servers exposing object storage, distributed SQL engines, and metadata catalogs to MCP-capable clients.
@@ -191,7 +188,7 @@
                 </ul>
                 <div class="mcp__cta">
                     <a class="btn btn--accent" href="https://mcp-data-platform.txn2.com">visit mcp-data-platform.txn2.com →</a>
-                    <a class="btn" href="https://github.com/txn2/mcp-data-platform">source ↗</a>
+                    <a class="btn" href="https://github.com/txn2/mcp-data-platform" aria-label="mcp-data-platform source on GitHub">source ↗</a>
                 </div>
                 <div class="mcp__schema" aria-hidden="true">
                     <pre>┌──── client ───┐
@@ -213,7 +210,7 @@
                 <p class="mcp__tag">MCP server for S3-compatible object storage. List buckets, list and fetch objects, retrieve metadata, and generate presigned URLs.</p>
                 <div class="mcp__links">
                     <a class="mcp__link mcp__link--primary" href="https://mcp-s3.txn2.com">mcp-s3.txn2.com →</a>
-                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-s3">source ↗</a>
+                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-s3" aria-label="mcp-s3 source on GitHub">source ↗</a>
                 </div>
             </article>
 
@@ -223,7 +220,7 @@
                 <p class="mcp__tag">MCP server for Trino. Browse catalogs and schemas, describe tables, run and EXPLAIN SQL queries, and export result sets.</p>
                 <div class="mcp__links">
                     <a class="mcp__link mcp__link--primary" href="https://mcp-trino.txn2.com">mcp-trino.txn2.com →</a>
-                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-trino">source ↗</a>
+                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-trino" aria-label="mcp-trino source on GitHub">source ↗</a>
                 </div>
             </article>
 
@@ -233,7 +230,7 @@
                 <p class="mcp__tag">MCP server for DataHub. Search the metadata catalog, walk lineage, retrieve schemas, glossary terms, and data products.</p>
                 <div class="mcp__links">
                     <a class="mcp__link mcp__link--primary" href="https://mcp-datahub.txn2.com">mcp-datahub.txn2.com →</a>
-                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-datahub">source ↗</a>
+                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-datahub" aria-label="mcp-datahub source on GitHub">source ↗</a>
                 </div>
             </article>
         </div>
@@ -244,7 +241,7 @@
         <header class="section__head">
             <p class="section__index">§ 03 — other components</p>
             <h2 class="section__title">
-                Additional <em class="serif">repositories</em>.
+                Additional <em class="serif">repositories</em>
             </h2>
             <p class="section__lede">
                 Further components published under the txn2 organization on GitHub.
@@ -259,7 +256,7 @@
                     <p class="stack__desc">Lightweight TCP/UDP port proxy.</p>
                 </div>
                 <span class="stack__tag">network</span>
-                <span class="stack__year">↗</span>
+                <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row">
                 <span class="stack__num">002</span>
@@ -268,16 +265,16 @@
                     <p class="stack__desc">Reverse proxy that issues and validates JSON Web Tokens.</p>
                 </div>
                 <span class="stack__tag">auth</span>
-                <span class="stack__year">↗</span>
+                <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row">
                 <span class="stack__num">003</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/mcp-amp">mcp-amp</a>
-                    <p class="stack__desc">Model Context Protocol server.</p>
+                    <p class="stack__desc">Model Context Protocol server for orchestration and automation workflows.</p>
                 </div>
                 <span class="stack__tag">mcp</span>
-                <span class="stack__year">↗</span>
+                <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row">
                 <span class="stack__num">004</span>
@@ -286,7 +283,7 @@
                     <p class="stack__desc">HTTP reverse proxy with content rewriting.</p>
                 </div>
                 <span class="stack__tag">network</span>
-                <span class="stack__year">↗</span>
+                <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row">
                 <span class="stack__num">005</span>
@@ -295,7 +292,7 @@
                     <p class="stack__desc">Kubernetes scripting and execution helper.</p>
                 </div>
                 <span class="stack__tag">k8s</span>
-                <span class="stack__year">↗</span>
+                <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row">
                 <span class="stack__num">006</span>
@@ -304,7 +301,7 @@
                     <p class="stack__desc">Data migration kit.</p>
                 </div>
                 <span class="stack__tag">data</span>
-                <span class="stack__year">↗</span>
+                <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row stack__row--more">
                 <span class="stack__num">···</span>
@@ -313,7 +310,7 @@
                     <p class="stack__desc">Full list of repositories under the txn2 organization.</p>
                 </div>
                 <span class="stack__tag">+ more</span>
-                <span class="stack__year">↗</span>
+                <span class="stack__year" aria-hidden="true">↗</span>
             </li>
         </ol>
     </section>

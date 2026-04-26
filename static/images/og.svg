@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+    <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ECE3CE" stroke-opacity="0.04" stroke-width="1"/>
+        </pattern>
+        <radialGradient id="orange-glow" cx="18%" cy="6%" r="60%">
+            <stop offset="0%" stop-color="#FF5A1F" stop-opacity="0.10"/>
+            <stop offset="100%" stop-color="#FF5A1F" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="acid-glow" cx="92%" cy="84%" r="55%">
+            <stop offset="0%" stop-color="#E1FF6E" stop-opacity="0.04"/>
+            <stop offset="100%" stop-color="#E1FF6E" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+
+    <!-- canvas -->
+    <rect width="1200" height="630" fill="#0B0B09"/>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+    <rect width="1200" height="630" fill="url(#orange-glow)"/>
+    <rect width="1200" height="630" fill="url(#acid-glow)"/>
+
+    <!-- corner crosshairs -->
+    <g stroke="#3A3830" stroke-width="1">
+        <line x1="40"   y1="60"  x2="68"  y2="60"/>
+        <line x1="54"   y1="46"  x2="54"  y2="74"/>
+        <line x1="1132" y1="60"  x2="1160" y2="60"/>
+        <line x1="1146" y1="46"  x2="1146" y2="74"/>
+        <line x1="40"   y1="570" x2="68"  y2="570"/>
+        <line x1="54"   y1="556" x2="54"  y2="584"/>
+        <line x1="1132" y1="570" x2="1160" y2="570"/>
+        <line x1="1146" y1="556" x2="1146" y2="584"/>
+    </g>
+
+    <!-- top metadata -->
+    <text x="80" y="68" font-family="'JetBrains Mono', 'Menlo', monospace" font-size="13" fill="#7C786C" letter-spacing="2">ORG · TXN2 · EST. 2017</text>
+    <text x="1120" y="68" font-family="'JetBrains Mono', 'Menlo', monospace" font-size="13" fill="#FF5A1F" letter-spacing="2" text-anchor="end" font-weight="bold">● LOS ANGELES, CA</text>
+
+    <!-- big italic "txn2" -->
+    <text x="80" y="290" font-family="Fraunces, 'Hoefler Text', 'Times New Roman', Times, serif" font-style="italic" font-size="220" fill="#ECE3CE" font-weight="300" letter-spacing="-6">txn2</text>
+
+    <!-- outline "open source" middle row -->
+    <text x="320" y="395" font-family="Fraunces, 'Hoefler Text', 'Times New Roman', Times, serif" font-size="92" fill="none" stroke="#ECE3CE" stroke-width="1.6" font-weight="400" letter-spacing="-2">open source</text>
+
+    <!-- italic "components." bottom -->
+    <text x="160" y="490" font-family="Fraunces, 'Hoefler Text', 'Times New Roman', Times, serif" font-style="italic" font-size="100" fill="#ECE3CE" font-weight="300" letter-spacing="-3">components.</text>
+
+    <!-- divider rule -->
+    <line x1="80" y1="540" x2="1120" y2="540" stroke="#2A2922" stroke-width="1"/>
+
+    <!-- ticker -->
+    <text x="80" y="572" font-family="'JetBrains Mono', 'Menlo', monospace" font-size="13" fill="#7C786C" letter-spacing="2">KUBEFWD &#183; TXEH &#183; MCP-DATA-PLATFORM &#183; MCP-TRINO &#183; MCP-S3 &#183; MCP-DATAHUB</text>
+
+    <!-- attribution -->
+    <text x="80" y="600" font-family="'Instrument Sans', 'Helvetica Neue', Helvetica, sans-serif" font-size="13" fill="#C9C0AB">github.com/txn2 &#8226; craig johnston &#8226; sponsored by deasil works, inc. and plexara</text>
+
+    <!-- right-side stamp -->
+    <g transform="translate(1115, 240) rotate(0)">
+        <line x1="0" y1="-20" x2="0" y2="80" stroke="#FF5A1F" stroke-width="2"/>
+        <text x="-12" y="-2" font-family="'JetBrains Mono', 'Menlo', monospace" font-size="13" fill="#7C786C" letter-spacing="2" text-anchor="end">VOL. IX · ENTRY 042</text>
+        <text x="-12" y="22" font-family="'JetBrains Mono', 'Menlo', monospace" font-size="13" fill="#7C786C" letter-spacing="2" text-anchor="end">EST. MMXVII</text>
+        <text x="-12" y="46" font-family="'JetBrains Mono', 'Menlo', monospace" font-size="13" fill="#7C786C" letter-spacing="2" text-anchor="end">DEASIL · PLEXARA</text>
+        <text x="-12" y="70" font-family="'JetBrains Mono', 'Menlo', monospace" font-size="13" fill="#FF5A1F" letter-spacing="2" font-weight="bold" text-anchor="end">RELEASE · LIVE</text>
+    </g>
+</svg>

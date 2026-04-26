@@ -1,10 +1,13 @@
 baseURL = "https://txn2.com/"
 languageCode = "en-us"
 title = "txn2"
-theme = "hugo-initio"
 publishDir = "docs"
 
 enableRobotsTXT = true
+enableGitInfo = true
+
+# No taxonomies — disable category/tag listings.
+disableKinds = ["taxonomy", "term"]
 
 [sitemap]
     changefreq = "weekly"
@@ -12,31 +15,13 @@ enableRobotsTXT = true
     filename = "sitemap.xml"
 
 [params]
-    name = "txn2"
     description = "Open source components developed by Craig Johnston, sponsored by Deasil Works, Inc. and Plexara. Command-line tools, Go libraries, and Model Context Protocol servers."
     tagline = "open source components"
     author = "Craig Johnston"
     keywords = "kubernetes, kubefwd, txeh, mcp, model context protocol, trino, datahub, s3, devops, open source, golang, craig johnston, txn2, deasil works, plexara"
-    ogImage = "images/txn2-large-banner-bg2x.jpg"
-    favicon = "images/gt_favicon.png"
-    DateForm = "January 2, 2006"
-    year = 2026
+    ogImage = "images/og.png"
 
-    showSubheader = true
-    showServices = true
-    showRecentWorks = false
-    showDownload = false
-    showClients = false
-
-    footerEnableContact = false
-    footerEnableFollowme = false
-    footerEnableTextWidget = true
-    footerEnableFormWidget = false
-
-[[menu.main]]
-    name = "github"
-    url = "https://github.com/txn2"
-    weight = 5
-
-[params.google.analytics]
-    trackerID = "UA-118020463-1"
+# Google Analytics 4 (GA4) — replace with your G-XXXXXXXXXX measurement ID.
+# Leave empty or comment out to disable analytics entirely.
+[params.googleAnalytics]
+    id = ""
