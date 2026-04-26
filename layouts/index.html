@@ -1,0 +1,340 @@
+{{ define "main" }}
+<main class="page page--home">
+
+    {{/* ─── BLUEPRINT GRID OVERLAY ─────────────────────────────── */}}
+    <div class="blueprint" aria-hidden="true">
+        <div class="blueprint__grid"></div>
+        <div class="blueprint__crosshair blueprint__crosshair--tl"><span></span><span></span></div>
+        <div class="blueprint__crosshair blueprint__crosshair--tr"><span></span><span></span></div>
+        <div class="blueprint__crosshair blueprint__crosshair--bl"><span></span><span></span></div>
+        <div class="blueprint__crosshair blueprint__crosshair--br"><span></span><span></span></div>
+    </div>
+
+    {{/* ─── TOP RAIL ───────────────────────────────────────────── */}}
+    <header class="rail">
+        <div class="rail__brand">
+            <span class="rail__mark" aria-hidden="true">◐</span>
+            <span class="rail__name">txn2</span>
+            <span class="rail__sep">·</span>
+            <span class="rail__sub">open source components</span>
+        </div>
+        <div class="rail__meta" aria-hidden="true">
+            <span class="rail__rel">rel. {{ .Site.Params.version | default "dev" }}</span>
+            <span class="rail__dot">●</span>
+            <span data-clock>—— UTC</span>
+            <span class="rail__dot">●</span>
+            <span>los angeles, ca</span>
+        </div>
+        <nav class="rail__nav">
+            <a href="#cli">cli</a>
+            <a href="#mcp">mcp</a>
+            <a href="#stack">stack</a>
+            <a href="https://github.com/txn2" class="rail__cta">github ↗</a>
+        </nav>
+    </header>
+
+    {{/* ─── HERO ───────────────────────────────────────────────── */}}
+    <section class="hero">
+        <div class="hero__stamp">
+            <p class="hero__stamp__line">org / txn2</p>
+            <p class="hero__stamp__line">est. 2017</p>
+            <p class="hero__stamp__line">deasil works · plexara</p>
+            <p class="hero__stamp__line hero__stamp__line--rel">rel. {{ .Site.Params.version | default "dev" }}</p>
+        </div>
+
+        <h1 class="hero__display">
+            <span class="hero__row hero__row--1">
+                <em class="serif">txn2</em>
+            </span>
+            <span class="hero__row hero__row--2">
+                <span class="outline">open source</span>
+            </span>
+            <span class="hero__row hero__row--3">
+                <em class="serif">components.</em>
+            </span>
+        </h1>
+
+        <div class="hero__intro">
+            <p class="hero__lede">
+                <span class="dropcap">t</span>xn2 is an open source organization for components developed by <strong>Craig Johnston</strong>, sponsored by <a href="https://deasil.works">Deasil Works, Inc.</a> and <a href="https://plexara.io">Plexara</a>. Includes command-line tools, Go libraries, and Model Context Protocol servers covering Kubernetes networking, host-file management, object storage, distributed SQL, and metadata catalogs.
+            </p>
+            <p class="hero__lede hero__lede--muted">
+                All components are released on <a href="https://github.com/txn2">GitHub</a> under the MIT or Apache 2.0 license.
+            </p>
+        </div>
+
+        <aside class="hero__ticker" aria-hidden="true">
+            <div class="ticker">
+                <div class="ticker__track">
+                    <span>kubefwd</span><span>·</span>
+                    <span>txeh</span><span>·</span>
+                    <span>mcp-data-platform</span><span>·</span>
+                    <span>mcp-trino</span><span>·</span>
+                    <span>mcp-s3</span><span>·</span>
+                    <span>mcp-datahub</span><span>·</span>
+                    <span>port-proxy</span><span>·</span>
+                    <span>jwtpxy</span><span>·</span>
+                    <span>kubefwd</span><span>·</span>
+                    <span>txeh</span><span>·</span>
+                    <span>mcp-data-platform</span><span>·</span>
+                    <span>mcp-trino</span><span>·</span>
+                    <span>mcp-s3</span><span>·</span>
+                    <span>mcp-datahub</span><span>·</span>
+                    <span>port-proxy</span><span>·</span>
+                    <span>jwtpxy</span><span>·</span>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    {{/* ─── CLI / LIBRARIES ────────────────────────────────────── */}}
+    <section class="section section--flagship" id="cli">
+        <header class="section__head">
+            <p class="section__index">§ 01 — command-line tools &amp; libraries</p>
+            <h2 class="section__title">
+                <em class="serif">kubefwd</em> · txeh
+            </h2>
+        </header>
+
+        <div class="flagship">
+            <article class="flagship__card flagship__card--kubefwd">
+                <header class="flagship__head">
+                    <p class="flagship__id">FWD-001 · go · <a class="flagship__url" href="https://kubefwd.com">kubefwd.com ↗</a></p>
+                    <h3 class="flagship__name">kubefwd</h3>
+                    <p class="flagship__tag">Bulk port-forward Kubernetes services to a local network.</p>
+                </header>
+                <div class="flagship__body">
+                    <p>Walks one or more Kubernetes namespaces, opens a port-forward for every service, and writes hostname entries into <code>/etc/hosts</code> so service names resolve directly on the local machine. Written in Go.</p>
+                </div>
+                <div class="flagship__demo" aria-hidden="true">
+                    <div class="terminal">
+                        <div class="terminal__bar">
+                            <span></span><span></span><span></span>
+                            <em>~ — kubefwd</em>
+                        </div>
+                        <pre class="terminal__body"><span class="t-prompt">$</span> kubefwd services -n the-project
+<span class="t-mute">INFO  Press [Ctrl-C] to stop forwarding.</span>
+<span class="t-mute">INFO  'cat /etc/hosts' to see fwd entries.</span>
+<span class="t-ok">  ✓ </span>postgres                    127.1.27.1:5432
+<span class="t-ok">  ✓ </span>redis                       127.1.27.2:6379
+<span class="t-ok">  ✓ </span>elastic                     127.1.27.3:9200
+<span class="t-ok">  ✓ </span>kafka-bootstrap             127.1.27.4:9092
+<span class="t-ok">  ✓ </span>api-internal                127.1.27.5:8080
+<span class="t-mute">INFO  forwarding 23 services across 3 namespaces.</span></pre>
+                    </div>
+                </div>
+                <footer class="flagship__foot">
+                    <a class="btn btn--accent" href="https://kubefwd.com">visit kubefwd.com →</a>
+                    <a class="btn" href="https://github.com/txn2/kubefwd">source ↗</a>
+                </footer>
+            </article>
+
+            <article class="flagship__card flagship__card--txeh">
+                <header class="flagship__head">
+                    <p class="flagship__id">HST-002 · go · <a class="flagship__url" href="https://txeh.txn2.com">txeh.txn2.com ↗</a></p>
+                    <h3 class="flagship__name">txeh</h3>
+                    <p class="flagship__tag">Go library and command-line tool for managing <code>/etc/hosts</code>.</p>
+                </header>
+                <div class="flagship__body">
+                    <p>Adds, removes, and lists entries in the system hosts file. Idempotent operations and stable formatting. Used internally by <code>kubefwd</code> and as a standalone utility.</p>
+                </div>
+                <div class="flagship__demo" aria-hidden="true">
+                    <div class="terminal">
+                        <div class="terminal__bar">
+                            <span></span><span></span><span></span>
+                            <em>~ — txeh</em>
+                        </div>
+                        <pre class="terminal__body"><span class="t-prompt">$</span> txeh add 127.0.0.1 dev.local api.dev.local
+<span class="t-ok">  ✓ </span>added 2 hostnames
+
+<span class="t-prompt">$</span> txeh list
+<span class="t-mute">  127.0.0.1     dev.local api.dev.local</span>
+<span class="t-mute">  127.1.27.1    postgres elastic kafka</span>
+<span class="t-mute">  ::1           localhost</span>
+
+<span class="t-prompt">$</span> txeh remove dev.local
+<span class="t-ok">  ✓ </span>removed 1 hostname</pre>
+                    </div>
+                </div>
+                <footer class="flagship__foot">
+                    <a class="btn btn--accent" href="https://txeh.txn2.com">visit txeh.txn2.com →</a>
+                    <a class="btn" href="https://github.com/txn2/txeh">source ↗</a>
+                </footer>
+            </article>
+        </div>
+    </section>
+
+    {{/* ─── MCP SERVERS ────────────────────────────────────────── */}}
+    <section class="section section--mcp" id="mcp">
+        <header class="section__head section__head--mcp">
+            <p class="section__index">§ 02 — model context protocol servers</p>
+            <h2 class="section__title">
+                MCP servers for the <em class="serif">data stack</em>.
+            </h2>
+            <p class="section__lede">
+                Model Context Protocol servers exposing object storage, distributed SQL engines, and metadata catalogs to MCP-capable clients.
+            </p>
+        </header>
+
+        <div class="mcp">
+            {{/* big card */}}
+            <article class="mcp__card mcp__card--feature">
+                <div class="mcp__feature__bg" aria-hidden="true"></div>
+                <p class="mcp__id">platform</p>
+                <h3 class="mcp__name mcp__name--big"><em class="serif">mcp-data-platform</em></h3>
+                <p class="mcp__tag">MCP server providing integrated access to S3-compatible object storage, the Trino distributed SQL query engine, and the DataHub metadata platform from a single endpoint.</p>
+                <ul class="mcp__list">
+                    <li>browse, query, and inspect across S3, Trino, and DataHub</li>
+                    <li>persistent memory and insight capture across sessions</li>
+                    <li>artifact storage and prompt management</li>
+                    <li>single-server alternative to running each MCP integration separately</li>
+                </ul>
+                <div class="mcp__cta">
+                    <a class="btn btn--accent" href="https://mcp-data-platform.txn2.com">visit mcp-data-platform.txn2.com →</a>
+                    <a class="btn" href="https://github.com/txn2/mcp-data-platform">source ↗</a>
+                </div>
+                <div class="mcp__schema" aria-hidden="true">
+                    <pre>┌──── client ───┐
+│   mcp-capable │
+│   llm / agent │
+└───────┬───────┘
+        │ mcp
+┌───────┴───────────────────────┐
+│      mcp-data-platform        │
+└──┬──────┬──────┬──────┬───────┘
+   │      │      │      │
+  s3    trino  hub   memory</pre>
+                </div>
+            </article>
+
+            <article class="mcp__card">
+                <p class="mcp__id">obj · 01</p>
+                <h3 class="mcp__name">mcp-s3</h3>
+                <p class="mcp__tag">MCP server for S3-compatible object storage. List buckets, list and fetch objects, retrieve metadata, and generate presigned URLs.</p>
+                <div class="mcp__links">
+                    <a class="mcp__link mcp__link--primary" href="https://mcp-s3.txn2.com">mcp-s3.txn2.com →</a>
+                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-s3">source ↗</a>
+                </div>
+            </article>
+
+            <article class="mcp__card">
+                <p class="mcp__id">sql · 02</p>
+                <h3 class="mcp__name">mcp-trino</h3>
+                <p class="mcp__tag">MCP server for Trino. Browse catalogs and schemas, describe tables, run and EXPLAIN SQL queries, and export result sets.</p>
+                <div class="mcp__links">
+                    <a class="mcp__link mcp__link--primary" href="https://mcp-trino.txn2.com">mcp-trino.txn2.com →</a>
+                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-trino">source ↗</a>
+                </div>
+            </article>
+
+            <article class="mcp__card">
+                <p class="mcp__id">meta · 03</p>
+                <h3 class="mcp__name">mcp-datahub</h3>
+                <p class="mcp__tag">MCP server for DataHub. Search the metadata catalog, walk lineage, retrieve schemas, glossary terms, and data products.</p>
+                <div class="mcp__links">
+                    <a class="mcp__link mcp__link--primary" href="https://mcp-datahub.txn2.com">mcp-datahub.txn2.com →</a>
+                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-datahub">source ↗</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    {{/* ─── REST OF THE STACK ──────────────────────────────────── */}}
+    <section class="section section--stack" id="stack">
+        <header class="section__head">
+            <p class="section__index">§ 03 — other components</p>
+            <h2 class="section__title">
+                Additional <em class="serif">repositories</em>.
+            </h2>
+            <p class="section__lede">
+                Further components published under the txn2 organization on GitHub.
+            </p>
+        </header>
+
+        <ol class="stack">
+            <li class="stack__row">
+                <span class="stack__num">001</span>
+                <div class="stack__main">
+                    <a class="stack__name" href="https://github.com/txn2/port-proxy">port-proxy</a>
+                    <p class="stack__desc">Lightweight TCP/UDP port proxy.</p>
+                </div>
+                <span class="stack__tag">network</span>
+                <span class="stack__year">↗</span>
+            </li>
+            <li class="stack__row">
+                <span class="stack__num">002</span>
+                <div class="stack__main">
+                    <a class="stack__name" href="https://github.com/txn2/jwtpxy">jwtpxy</a>
+                    <p class="stack__desc">Reverse proxy that issues and validates JSON Web Tokens.</p>
+                </div>
+                <span class="stack__tag">auth</span>
+                <span class="stack__year">↗</span>
+            </li>
+            <li class="stack__row">
+                <span class="stack__num">003</span>
+                <div class="stack__main">
+                    <a class="stack__name" href="https://github.com/txn2/mcp-amp">mcp-amp</a>
+                    <p class="stack__desc">Model Context Protocol server.</p>
+                </div>
+                <span class="stack__tag">mcp</span>
+                <span class="stack__year">↗</span>
+            </li>
+            <li class="stack__row">
+                <span class="stack__num">004</span>
+                <div class="stack__main">
+                    <a class="stack__name" href="https://github.com/txn2/n2proxy">n2proxy</a>
+                    <p class="stack__desc">HTTP reverse proxy with content rewriting.</p>
+                </div>
+                <span class="stack__tag">network</span>
+                <span class="stack__year">↗</span>
+            </li>
+            <li class="stack__row">
+                <span class="stack__num">005</span>
+                <div class="stack__main">
+                    <a class="stack__name" href="https://github.com/txn2/n2x">n2x</a>
+                    <p class="stack__desc">Kubernetes scripting and execution helper.</p>
+                </div>
+                <span class="stack__tag">k8s</span>
+                <span class="stack__year">↗</span>
+            </li>
+            <li class="stack__row">
+                <span class="stack__num">006</span>
+                <div class="stack__main">
+                    <a class="stack__name" href="https://github.com/txn2/dmk">dmk</a>
+                    <p class="stack__desc">Data migration kit.</p>
+                </div>
+                <span class="stack__tag">data</span>
+                <span class="stack__year">↗</span>
+            </li>
+            <li class="stack__row stack__row--more">
+                <span class="stack__num">···</span>
+                <div class="stack__main">
+                    <a class="stack__name" href="https://github.com/txn2?tab=repositories">all repositories on github</a>
+                    <p class="stack__desc">Full list of repositories under the txn2 organization.</p>
+                </div>
+                <span class="stack__tag">+ more</span>
+                <span class="stack__year">↗</span>
+            </li>
+        </ol>
+    </section>
+
+    {{/* ─── ABOUT ──────────────────────────────────────────────── */}}
+    <section class="section section--coda">
+        <div class="coda">
+            <p class="coda__kicker">— about</p>
+            <p class="coda__big">
+                Components developed by <a href="https://imti.co"><em class="serif">Craig Johnston</em></a>, sponsored by <a href="https://deasil.works"><em class="serif">Deasil Works, Inc.</em></a> and <a href="https://plexara.io"><em class="serif">Plexara</em></a>. Released under the MIT or Apache 2.0 license.
+            </p>
+            <div class="coda__cta">
+                <a class="btn btn--big" href="https://github.com/txn2">github.com/txn2 →</a>
+                <a class="btn" href="https://deasil.works">deasil.works ↗</a>
+                <a class="btn" href="https://plexara.io">plexara.io ↗</a>
+                <a class="btn" href="https://imti.co">imti.co ↗</a>
+                <a class="btn" href="https://x.com/cjimti">x ↗</a>
+                <a class="btn" href="https://www.linkedin.com/in/cjimti/">linkedin ↗</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+{{ end }}

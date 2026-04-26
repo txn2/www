@@ -1,107 +1,42 @@
-<footer id="footer">
-    <div class="container">
-        <div class="row">
-            {{ if .Site.Params.footerEnableContact }}
-            <div class="col-md-3 widget">
-                <h3 class="widget-title">Contact</h3>
-                <div class="widget-body">
-                    <p>{{ .Site.Params.phone }}<br>
-                        <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a><br>
-                        <br>
-                        {{ .Site.Params.address }}
-                    </p>
-                </div>
-            </div>
-            {{ end }}
-
-            {{ if .Site.Params.footerEnableFollowme }}
-            <div class="col-md-3 widget">
-                <h3 class="widget-title">Follow me</h3>
-                <div class="widget-body">
-                    <p class="follow-me-icons">
-                        {{ range .Site.Params.social }}
-                        {{ if .footer }}
-                        <a href="{{ .url }}" target="_blank"><i class="fa {{ .icon }} fa-2"></i></a>
-                        {{ end }}
-                        {{ end }}
-                    </p>
-                </div>
-            </div>
-            {{ end }}
-
-            {{ if .Site.Params.footerEnableTextWidget }}
-            <div class="col-md-3 widget">
-                <h3 class="widget-title"></h3>
-                <div class="widget-body">
-                    <p></p>
-                </div>
-            </div>
-            <div class="col-md-3 widget">
-                <h3 class="widget-title">About</h3>
-                <div class="widget-body">
-                    <p>TXN2 offers a collection of open source applications with support and contributions by industry innovators.</p>
-                </div>
-            </div>
-            <div class="col-md-3 widget">
-                <h3 class="widget-title">Open Source</h3>
-                <div class="widget-body">
-                    <p>All applications are open source and available on <a href="https://github.com/txn2">Github</a>. TXN2 provides access to professional services for enterprise implementations, custom builds, device integration, service hosting and support.</p>
-                </div>
-            </div>
-            <div class="col-md-3 widget">
-                <h3 class="widget-title"></h3>
-                <div class="widget-body">
-                    <p></p>
-                </div>
-            </div>
-            {{ end }}
-
-            {{ if .Site.Params.footerEnableFormWidget }}
-            <div class="col-md-3 widget">
-                <h3 class="widget-title">Form widget</h3>
-                <div class="widget-body">
-                    <p>{{ .Site.Params.phone }}<br>
-                        <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a><br>
-                        <br>
-                        {{ .Site.Params.address }}
-                    </p>
-                </div>
-            </div>
-            {{ end }}
-
-        </div> <!-- /row of widgets -->
+<footer class="footer">
+    <div class="footer__rule" aria-hidden="true"></div>
+    <div class="footer__inner">
+        <div class="footer__col">
+            <p class="footer__label">about</p>
+            <p class="footer__text">Open source components developed by <a href="https://imti.co">Craig Johnston</a>, sponsored by <a href="https://deasil.works">Deasil Works, Inc.</a> and <a href="https://plexara.io">Plexara</a>.</p>
+        </div>
+        <div class="footer__col">
+            <p class="footer__label">txn2</p>
+            <ul class="footer__links">
+                <li><a href="https://github.com/txn2">github.com/txn2</a></li>
+                <li><a href="https://github.com/txn2?tab=repositories&type=source">all repositories</a></li>
+                <li><a href="https://hub.docker.com/u/txn2">hub.docker.com/u/txn2</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <p class="footer__label">sponsors</p>
+            <ul class="footer__links">
+                <li><a href="https://deasil.works">deasil.works</a></li>
+                <li><a href="https://plexara.io">plexara.io</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <p class="footer__label">craig</p>
+            <ul class="footer__links">
+                <li><a href="https://imti.co">imti.co <span class="footer__links__sub">— blog</span></a></li>
+                <li><a href="https://x.com/cjimti">x.com/cjimti</a></li>
+                <li><a href="https://www.linkedin.com/in/cjimti/">linkedin.com/in/cjimti</a></li>
+                <li><a href="https://github.com/cjimti">github.com/cjimti</a></li>
+            </ul>
+        </div>
+        <div class="footer__col footer__col--meta">
+            <p class="footer__label">build</p>
+            <p class="footer__mono">{{ .Site.Params.version | default "dev" }} <span class="dot">·</span> built {{ now.Format "2006.01.02" }}<br>
+            los angeles, ca <span class="dot">·</span> 34.05° / −118.24°<br>
+            <span data-clock>—— UTC</span></p>
+        </div>
+    </div>
+    <div class="footer__base">
+        <p>© 2017—{{ now.Format "2006" }} · txn2 · components released under MIT or Apache 2.0.</p>
     </div>
 </footer>
-
-<footer id="underfooter">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-6 widget">
-                <div class="widget-body">
-                    <p>{{ .Site.Params.address }}</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 widget">
-                <div class="widget-body">
-                    <p class="text-right">
-                        Copyright &copy; {{ .Site.Params.year }}, {{ .Site.Params.name }}<br>
-                    </p>
-                </div>
-            </div>
-
-        </div> <!-- /row of widgets -->
-    </div>
-</footer>
-
-
-
-<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/template.js"></script>
-<script id="dsq-count-scr" src="//{{ .Site.Params.disqus.site }}/count.js" async></script>
-{{ partial "analyticstracking.html" . }}
-</body>
-</html>

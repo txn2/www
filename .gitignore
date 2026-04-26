@@ -1,1 +1,8 @@
 .idea
+.claude
+.DS_Store
+node_modules
+.hugo_build.lock
+public
+docs
+resources/_gen

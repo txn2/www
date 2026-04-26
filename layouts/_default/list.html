@@ -1,0 +1,23 @@
+{{ define "main" }}
+<main class="page">
+    <nav class="topnav">
+        <a class="brand" href="{{ .Site.BaseURL }}">
+            <span class="brand__mark" aria-hidden="true">◐</span>
+            <span class="brand__name">txn2</span>
+        </a>
+        <a class="topnav__back" href="{{ .Site.BaseURL }}">← back to index</a>
+    </nav>
+
+    <section class="prose">
+        <header class="prose__head">
+            <p class="prose__kicker">section / {{ .Section }}</p>
+            <h1 class="prose__title">{{ .Title }}</h1>
+        </header>
+        <ul class="prose__list">
+            {{ range .Pages }}
+            <li><a href="{{ .Permalink }}"><span>{{ .Title }}</span><em>{{ .Date.Format "2006.01" }}</em></a></li>
+            {{ end }}
+        </ul>
+    </section>
+</main>
+{{ end }}
