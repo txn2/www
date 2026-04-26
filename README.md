@@ -25,13 +25,18 @@ hugo --minify --gc
 
 ## Deploy
 
-The site deploys automatically when you push a `v*` tag or publish a GitHub Release:
+Every push to `master` deploys the site. Pull requests run a build-only smoke test.
+
+To cut a versioned release (the `rel.` stamp on the live site reads `git describe --tags`):
 
 ```bash
-git tag v0.1.0 && git push origin v0.1.0
+git tag v0.1.0
+git push origin master v0.1.0     # commit + tag in one push
 ```
 
-GitHub Pages must be set to **Source: "GitHub Actions"** (Settings → Pages).
+GitHub Pages must be set to **Source: "GitHub Actions"** (Settings → Pages). If left as "Deploy from a branch" the auto `pages-build-deployment` workflow will run on every push and fail because `docs/` isn't committed.
+
+Manual deploys are available from the Actions tab via "Run workflow" — optionally pass a version override.
 
 ## Structure
 

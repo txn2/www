@@ -1,25 +1,34 @@
 # Build and deploy txn2.com to GitHub Pages.
 #
-# One-time repo setup:
+# REQUIRED ONE-TIME REPO SETUP:
 #   Settings → Pages → Source: "GitHub Actions"
+#   (If left as "Deploy from a branch" the auto pages-build-deployment
+#    workflow will run on every push and fail because docs/ is no
+#    longer committed.)
 #
 # Triggers:
-#   - Push of a tag matching v*           (live deploy)
-#   - GitHub Release published            (live deploy)
-#   - Pull request targeting master       (build-only, no deploy)
-#   - Manual run via Actions tab          (live deploy)
+#   - Push to master                       → live deploy
+#   - Manual run via Actions tab           → live deploy
+#   - Pull request targeting master        → build-only smoke test (no deploy)
+#
+# Release flow:
+#   git tag v0.1.0
+#   git push origin master v0.1.0      # push commit + tag together;
+#                                      # the workflow resolves the version
+#                                      # from `git describe --tags`.
 
 name: deploy
 
 on:
   push:
-    tags:
-      - 'v*'
-  release:
-    types: [published]
+    branches: [master]
   pull_request:
     branches: [master]
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Override version (e.g., v0.1.0). Defaults to latest tag.'
+        required: false
 
 permissions:
   contents: read
@@ -51,10 +60,8 @@ jobs:
       - name: Resolve release version
         id: ver
         run: |
-          if [ "${{ github.event_name }}" = "release" ]; then
-            VERSION="${{ github.event.release.tag_name }}"
-          elif [ "${{ github.ref_type }}" = "tag" ]; then
-            VERSION="${{ github.ref_name }}"
+          if [ -n "${{ inputs.version }}" ]; then
+            VERSION="${{ inputs.version }}"
           elif [ "${{ github.event_name }}" = "pull_request" ]; then
             VERSION="pr-${{ github.event.pull_request.number }}"
           else
@@ -82,6 +89,7 @@ jobs:
           test -f docs/sitemap.xml
           test -f docs/robots.txt
           test -f docs/llms.txt
+          test -f docs/images/og.png
           echo "All expected files present."
 
       - name: Upload Pages artifact
