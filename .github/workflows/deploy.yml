@@ -2,27 +2,20 @@
 #
 # REQUIRED ONE-TIME REPO SETUP:
 #   Settings → Pages → Source: "GitHub Actions"
-#   (If left as "Deploy from a branch" the auto pages-build-deployment
-#    workflow will run on every push and fail because docs/ is no
-#    longer committed.)
 #
 # Triggers:
-#   - Push to master                       → live deploy
-#   - Manual run via Actions tab           → live deploy
+#   - Push of a v* tag                     → live deploy at that tag
+#   - GitHub Release published             → live deploy at the release tag
+#   - Manual run (workflow_dispatch)       → live deploy with optional version override
 #   - Pull request targeting master        → build-only smoke test (no deploy)
 #
-# Release flow:
-#   git tag v0.1.0
-#   git push origin master v0.1.0      # push commit + tag together;
-#                                      # the workflow resolves the version
-#                                      # from `git describe --tags`.
+# Master pushes do NOT deploy on their own — tag the commit to ship.
 
 name: deploy
 
 on:
   push:
-    branches: [master]
-    tags:     ['v*']
+    tags: ['v*']
   release:
     types: [published]
   pull_request:
@@ -30,7 +23,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Override version (e.g., v9.0.1). Defaults to latest tag.'
+        description: 'Version stamp to display on the site (e.g. v9.0.2). Defaults to "dev".'
         required: false
 
 permissions:
@@ -72,7 +65,7 @@ jobs:
           elif [ "${{ github.event_name }}" = "pull_request" ]; then
             VERSION="pr-${{ github.event.pull_request.number }}"
           else
-            VERSION="$(git describe --tags --abbrev=0 2>/dev/null || echo dev)"
+            VERSION="dev"
           fi
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
           echo "Resolved version: ${VERSION}"

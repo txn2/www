@@ -25,26 +25,28 @@ hugo --minify --gc
 
 ## Deploy
 
-Triggers that deploy the site:
+The site only deploys from tags. Master pushes do not deploy on their own.
 
-- Push to `master`
-- Push of a `v*` tag (e.g. `v9.0.1`)
-- Publishing a GitHub Release
-- "Run workflow" from the Actions tab (optionally with a version override)
+Triggers:
 
-Pull requests run a build-only smoke test.
-
-The `rel.` stamp on the live site is resolved in this order: workflow_dispatch input → release tag → pushed tag → `git describe --tags --abbrev=0` → `dev`.
+- Push of a `v*` tag — deploys with that tag as the `rel.` stamp
+- Publishing a GitHub Release — deploys with the release's tag
+- Manual run from the Actions tab — deploys with an optional version input (defaults to `dev`)
+- Pull request to `master` — build-only smoke test, no deploy
 
 ```bash
-# tag-only release (re-deploys with that tag stamp):
-git tag v9.0.1 && git push origin v9.0.1
-
-# or commit + tag together:
-git push origin master v9.0.1
+# release flow:
+git push origin master           # land changes (no deploy)
+git tag v9.0.2
+git push origin v9.0.2           # this is what deploys
 ```
 
-The `github-pages` environment is configured to allow `master` branch and `v*` tag deploys.
+The `github-pages` environment must allow `v*` tag deploys. One-time setup (already done on this repo):
+
+```bash
+gh api -X POST repos/<org>/<repo>/environments/github-pages/deployment-branch-policies \
+  -f name='v*' -f type=tag
+```
 
 GitHub Pages source must be **"GitHub Actions"** (Settings → Pages, or `gh api -X PUT repos/<org>/<repo>/pages -f build_type=workflow`). If left as "Deploy from a branch" the auto `pages-build-deployment` workflow will run on every push and fail because `docs/` isn't committed.
 
