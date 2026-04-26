@@ -1,0 +1,32 @@
+# txn2 — https://txn2.com
+# Open source components developed by Craig Johnston, sponsored by Deasil Works, Inc. and Plexara.
+
+User-agent: *
+Allow: /
+
+# Be explicit about LLM / AI crawlers — content is open source friendly.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: {{ "sitemap.xml" | absURL }}

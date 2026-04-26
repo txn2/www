@@ -1,19 +1,26 @@
 baseURL = "https://txn2.com/"
 languageCode = "en-us"
-title = "txn2 - OSS Development"
+title = "txn2"
 theme = "hugo-initio"
 publishDir = "docs"
 
+enableRobotsTXT = true
+
+[sitemap]
+    changefreq = "weekly"
+    priority = 0.5
+    filename = "sitemap.xml"
+
 [params]
     name = "txn2"
-    description = "OSS Development"
-    email = ""
-    phone = ""
-    address = ""
-    year = 2020
-    background = ""
+    description = "Open source components developed by Craig Johnston, sponsored by Deasil Works, Inc. and Plexara. Command-line tools, Go libraries, and Model Context Protocol servers."
+    tagline = "open source components"
+    author = "Craig Johnston"
+    keywords = "kubernetes, kubefwd, txeh, mcp, model context protocol, trino, datahub, s3, devops, open source, golang, craig johnston, txn2, deasil works, plexara"
+    ogImage = "images/txn2-large-banner-bg2x.jpg"
     favicon = "images/gt_favicon.png"
     DateForm = "January 2, 2006"
+    year = 2026
 
     showSubheader = true
     showServices = true

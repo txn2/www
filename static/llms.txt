@@ -1,0 +1,35 @@
+# txn2
+
+> Open source organization for components developed by Craig Johnston, sponsored by Deasil Works, Inc. and Plexara. Includes command-line tools, Go libraries, and Model Context Protocol (MCP) servers covering Kubernetes networking, host-file management, object storage, distributed SQL, and metadata catalogs. All components released under the MIT or Apache 2.0 license.
+
+Based in Los Angeles, California. Established 2017.
+
+## Command-line tools and libraries
+
+- [kubefwd](https://kubefwd.com): Bulk port-forward Kubernetes services to a local network. Walks one or more namespaces, opens a port-forward for every service, and writes hostname entries into /etc/hosts. Written in Go. Source: https://github.com/txn2/kubefwd
+- [txeh](https://txeh.txn2.com): Go library and command-line tool for managing /etc/hosts. Adds, removes, and lists entries with idempotent operations and stable formatting. Used internally by kubefwd. Source: https://github.com/txn2/txeh
+
+## Model Context Protocol servers
+
+- [mcp-data-platform](https://mcp-data-platform.txn2.com): MCP server providing integrated access to S3-compatible object storage, the Trino distributed SQL query engine, and the DataHub metadata platform from a single endpoint. Includes persistent memory, insight capture, artifact storage, and prompt management. Source: https://github.com/txn2/mcp-data-platform
+- [mcp-s3](https://mcp-s3.txn2.com): MCP server for S3-compatible object storage. List buckets, list and fetch objects, retrieve metadata, and generate presigned URLs. Source: https://github.com/txn2/mcp-s3
+- [mcp-trino](https://mcp-trino.txn2.com): MCP server for Trino. Browse catalogs and schemas, describe tables, run and EXPLAIN SQL queries, and export result sets. Source: https://github.com/txn2/mcp-trino
+- [mcp-datahub](https://mcp-datahub.txn2.com): MCP server for DataHub. Search the metadata catalog, walk lineage, retrieve schemas, glossary terms, and data products. Source: https://github.com/txn2/mcp-datahub
+
+## Other components
+
+- [port-proxy](https://github.com/txn2/port-proxy): Lightweight TCP/UDP port proxy.
+- [jwtpxy](https://github.com/txn2/jwtpxy): Reverse proxy that issues and validates JSON Web Tokens.
+- [mcp-amp](https://github.com/txn2/mcp-amp): Model Context Protocol server.
+- [n2proxy](https://github.com/txn2/n2proxy): HTTP reverse proxy with content rewriting.
+- [n2x](https://github.com/txn2/n2x): Kubernetes scripting and execution helper.
+- [dmk](https://github.com/txn2/dmk): Data migration kit.
+
+## Optional
+
+- [GitHub organization](https://github.com/txn2): All txn2 repositories.
+- [All repositories](https://github.com/txn2?tab=repositories&type=source): Filterable list of source repositories.
+- [Docker Hub](https://hub.docker.com/u/txn2): Published container images.
+- [Craig Johnston](https://imti.co): Author. Personal blog at imti.co.
+- [Deasil Works, Inc.](https://deasil.works): Sponsor. Software consultancy.
+- [Plexara](https://plexara.io): Sponsor.
