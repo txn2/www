@@ -6,24 +6,24 @@ Based in Los Angeles, California. Established 2017.
 
 ## Model Context Protocol servers
 
-- [mcp-data-platform](https://mcp-data-platform.txn2.com): A semantic data platform MCP server that composes multiple data tools with bidirectional cross-injection — tool responses automatically include critical context from other services. Composes mcp-s3, mcp-trino, and mcp-datahub behind a single endpoint. Source: https://github.com/txn2/mcp-data-platform
-- [mcp-s3](https://mcp-s3.txn2.com): A Model Context Protocol server for Amazon S3 and S3-compatible object storage. Browse buckets, read and write objects, generate presigned URLs. Source: https://github.com/txn2/mcp-s3
-- [mcp-trino](https://mcp-trino.txn2.com): A Model Context Protocol server for Trino, enabling AI assistants to query and explore data warehouses. Source: https://github.com/txn2/mcp-trino
-- [mcp-datahub](https://mcp-datahub.txn2.com): DataHub MCP server and composable Go library for building custom MCP servers that integrate DataHub metadata capabilities. Part of the txn2 MCP toolkit ecosystem. Source: https://github.com/txn2/mcp-datahub
+- [mcp-data-platform](https://mcp-data-platform.txn2.com): An AI assistant can run SQL but doesn't know which columns contain PII, which tables were deprecated, or who owns the data. mcp-data-platform connects assistants to your data infrastructure and adds business context from your semantic layer (DataHub-anchored). Orchestrates mcp-s3, mcp-trino, and mcp-datahub behind a single endpoint with bidirectional cross-injection — Trino results carry DataHub metadata, S3 reads carry lineage. Includes a gateway toolkit that re-exposes any third-party MCP server through unified auth, persona, and audit pipelines, plus a DB-backed admin portal for encrypted credential management. Source: https://github.com/txn2/mcp-data-platform
+- [mcp-s3](https://mcp-s3.txn2.com): Connects S3-compatible storage to MCP clients with read-only mode, size limits, prefix-based ACLs, and audit logging. Works with AWS S3, SeaweedFS, LocalStack, MinIO, or anything that speaks the S3 API. Multi-account from a single installation. Source: https://github.com/txn2/mcp-s3
+- [mcp-trino](https://mcp-trino.txn2.com): Connects Trino to MCP clients with an optional semantic layer. Surfaces business descriptions, ownership, and data quality from metadata catalogs alongside query results — and marks sensitive columns so AI assistants know what not to read. Multi-cluster from one install. Source: https://github.com/txn2/mcp-trino
+- [mcp-datahub](https://mcp-datahub.txn2.com): MCP server and Go library for DataHub. Search datasets, explore schemas, trace lineage, and read glossary terms, domains, and ownership. Ships as a standalone binary, a one-click Claude Desktop .mcpb bundle, or a composable library for building custom MCP servers. Source: https://github.com/txn2/mcp-datahub
 
 ## Utilities
 
-- [kubefwd](https://kubefwd.com): Bulk port forwarding Kubernetes services for local development. Walks one or more namespaces, opens a port-forward for every service, and writes hostname entries into /etc/hosts. Source: https://github.com/txn2/kubefwd
-- [txeh](https://txeh.txn2.com): Go library and CLI utility for /etc/hosts management. Idempotent operations, stable formatting. Source: https://github.com/txn2/txeh
+- [kubefwd](https://kubefwd.com): Bulk port-forwards every service in a Kubernetes namespace, assigns each a unique 127.x.x.x loopback IP, and writes hostname entries into /etc/hosts. Existing in-cluster connection strings (http://api-gateway:8080, redis-cli -h cache, mysql -h database) work unchanged on a developer laptop. Interactive TUI with live traffic, pod logs, and auto-reconnect on pod restart. Invoked with `sudo -E kubefwd svc -n <namespace> --tui`. Source: https://github.com/txn2/kubefwd
+- [txeh](https://txeh.txn2.com): Go library and CLI for /etc/hosts management. Originated as the substrate under kubefwd's hosts-file rewrites and grew into a standalone utility. Mutex-protected for concurrent use, supports IPv4 + IPv6, CIDR ranges, comment-based grouping, dry-run rendering, and preserves comments and file formatting on existing lines. Source: https://github.com/txn2/txeh
 
 ## Other components
 
-- [portpxy](https://github.com/txn2/portpxy): HTTP proxy to a port specified on the request path.
-- [jwtpxy](https://github.com/txn2/jwtpxy): Pre-validates and parses JWT web tokens into HTTP headers easily read by backend services.
-- [amp](https://github.com/txn2/amp): Kubernetes Dynamic Admission Control mutating Webhook proxy for Pods.
-- [rxtx](https://github.com/txn2/rxtx): Queue-based data collector and transmitter with store-and-forward. Useful for online/offline data collection and back-pressure buffering.
-- [asws](https://github.com/txn2/asws): Static web server with a JSON REST API for exposing directory listings.
-- [mcp-common](https://github.com/txn2/mcp-common): MCP Go library providing shared interfaces, types, and utilities for building composable Model Context Protocol servers.
+- [portpxy](https://github.com/txn2/portpxy): HTTP reverse proxy that routes requests to backend ports specified in the URL path (`/8081/foo` → `backend:8081/foo`). Useful for exposing applications that create dynamic HTTP listeners — NiFi processors, webhook receivers — through a single Kubernetes ingress.
+- [jwtpxy](https://github.com/txn2/jwtpxy): Reverse proxy that pre-validates JWTs against Keycloak (or any OIDC realm) and forwards parsed claims as HTTP headers. Backend services read user, roles, and realm-access from headers — no token-handling library required.
+- [amp](https://github.com/txn2/amp): Kubernetes Admission Mutation Proxy. Forwards Pod admission reviews to a custom HTTP endpoint and applies the JSONPatch operations it returns. Originally built to inject per-user volumes and env vars into JupyterHub-spawned Pods.
+- [rxtx](https://github.com/txn2/rxtx): Queue-based data collector with store-and-forward. Buffers HTTP POST data when downstream is offline, replays when it comes back. Built for IoT and edge collection where the network blinks.
+- [asws](https://github.com/txn2/asws): Another static web server. Serves a directory and exposes its listing through a JSON REST API — useful for download pages, asset catalogs, and any web app that wants to enumerate what's on disk without writing a backend.
+- [mcp-common](https://github.com/txn2/mcp-common): Shared MCP Go library — interfaces, types, middleware patterns, and utilities. The substrate behind mcp-trino, mcp-datahub, mcp-s3, and any custom server that wants to drop into the same composable stack.
 
 ## Optional
 

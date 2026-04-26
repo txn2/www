@@ -113,12 +113,13 @@
                 <div class="mcp__feature__bg" aria-hidden="true"></div>
                 <p class="mcp__id">platform</p>
                 <h3 class="mcp__name mcp__name--big"><em class="serif">mcp-data-platform</em></h3>
-                <p class="mcp__tag">A semantic data platform MCP server that composes multiple data tools with bidirectional cross-injection — tool responses automatically include critical context from other services.</p>
+                <p class="mcp__tag">An AI assistant can run SQL — but it doesn't know that <code>cust_id</code> is PII, that the table was deprecated last month, or who to ask when something breaks. <strong>mcp-data-platform fixes that.</strong> It connects assistants to your data infrastructure and adds business context from your semantic layer. Query a Trino table and get its meaning, owners, quality scores, and deprecation warnings in the same response.</p>
                 <ul class="mcp__list">
-                    <li>composes <code>mcp-s3</code>, <code>mcp-trino</code>, and <code>mcp-datahub</code> behind a single endpoint</li>
-                    <li>bidirectional cross-injection: tool responses include context from sibling services</li>
-                    <li>persistent memory and insight capture across sessions</li>
-                    <li>artifact storage and prompt management</li>
+                    <li>orchestrates <code>mcp-datahub</code>, <code>mcp-s3</code>, and <code>mcp-trino</code> behind a single endpoint</li>
+                    <li>bidirectional cross-injection — Trino results carry DataHub metadata; S3 reads carry lineage</li>
+                    <li>gateway toolkit re-exposes any third-party MCP server through unified auth, persona, and audit pipelines</li>
+                    <li>operator admin portal for DB-backed, encrypted credential management</li>
+                    <li>declarative cross-enrichment rules join proxied responses with Trino queries or DataHub lookups</li>
                 </ul>
                 <div class="mcp__cta">
                     <a class="btn btn--accent" href="https://mcp-data-platform.txn2.com">visit mcp-data-platform.txn2.com →</a>
@@ -150,7 +151,7 @@ flowchart TD
             <article class="mcp__card">
                 <p class="mcp__id">obj · 01</p>
                 <h3 class="mcp__name">mcp-s3</h3>
-                <p class="mcp__tag">A Model Context Protocol server for Amazon S3 and S3-compatible object storage. Browse buckets, read and write objects, and generate presigned URLs.</p>
+                <p class="mcp__tag">Connects S3-compatible storage to MCP clients with read-only mode, size limits, prefix-based ACLs, and audit logging. Works with AWS S3, SeaweedFS, LocalStack, MinIO, or anything that speaks S3. Multi-account from a single installation.</p>
                 <div class="mcp__links">
                     <a class="mcp__link mcp__link--primary" href="https://mcp-s3.txn2.com">mcp-s3.txn2.com →</a>
                     <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-s3" aria-label="mcp-s3 source on GitHub">source ↗</a>
@@ -160,7 +161,7 @@ flowchart TD
             <article class="mcp__card">
                 <p class="mcp__id">sql · 02</p>
                 <h3 class="mcp__name">mcp-trino</h3>
-                <p class="mcp__tag">A Model Context Protocol server for Trino, enabling AI assistants to query and explore data warehouses.</p>
+                <p class="mcp__tag">Connects Trino to MCP clients with an optional semantic layer. Surfaces business descriptions, ownership, and quality scores from metadata catalogs alongside query results — and marks sensitive columns so an AI assistant knows what not to read. Multi-cluster from one install.</p>
                 <div class="mcp__links">
                     <a class="mcp__link mcp__link--primary" href="https://mcp-trino.txn2.com">mcp-trino.txn2.com →</a>
                     <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-trino" aria-label="mcp-trino source on GitHub">source ↗</a>
@@ -170,7 +171,7 @@ flowchart TD
             <article class="mcp__card">
                 <p class="mcp__id">meta · 03</p>
                 <h3 class="mcp__name">mcp-datahub</h3>
-                <p class="mcp__tag">DataHub MCP server and composable Go library for building custom MCP servers that integrate DataHub metadata capabilities. Part of the txn2 MCP toolkit ecosystem.</p>
+                <p class="mcp__tag">MCP server and Go library for DataHub. Search datasets, explore schemas, trace lineage, and read glossary terms, domains, and ownership. Ships as a standalone binary, a one-click Claude Desktop <code>.mcpb</code> bundle, or a composable library.</p>
                 <div class="mcp__links">
                     <a class="mcp__link mcp__link--primary" href="https://mcp-datahub.txn2.com">mcp-datahub.txn2.com →</a>
                     <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-datahub" aria-label="mcp-datahub source on GitHub">source ↗</a>
@@ -193,10 +194,10 @@ flowchart TD
                 <header class="flagship__head">
                     <p class="flagship__id">FWD-001 · go · <a class="flagship__url" href="https://kubefwd.com">kubefwd.com ↗</a></p>
                     <h3 class="flagship__name">kubefwd</h3>
-                    <p class="flagship__tag">Bulk port forwarding Kubernetes services for local development.</p>
+                    <p class="flagship__tag">Develop locally, connect to Kubernetes — by service name.</p>
                 </header>
                 <div class="flagship__body">
-                    <p>Walks one or more Kubernetes namespaces, opens a port-forward for every service, and writes hostname entries into <code>/etc/hosts</code> so service names resolve directly on the local machine. Written in Go.</p>
+                    <p>Bulk port-forwards every service in a namespace, assigns each a unique 127.x.x.x loopback IP, and writes the matching hostname entries into <code>/etc/hosts</code>. Your application's existing in-cluster connection strings — <code>http://api-gateway:8080</code>, <code>redis-cli -h cache</code>, <code>mysql -h database</code> — work unchanged on your laptop. Interactive TUI with live traffic, pod logs, and auto-reconnect on pod restart.</p>
                 </div>
                 <div class="flagship__demo" aria-hidden="true">
                     <div class="terminal">
@@ -204,15 +205,14 @@ flowchart TD
                             <span></span><span></span><span></span>
                             <em>~ — kubefwd</em>
                         </div>
-                        <pre class="terminal__body"><span class="t-prompt">$</span> kubefwd services -n the-project
-<span class="t-mute">INFO  Press [Ctrl-C] to stop forwarding.</span>
-<span class="t-mute">INFO  'cat /etc/hosts' to see fwd entries.</span>
-<span class="t-ok">  ✓ </span>postgres
-<span class="t-ok">  ✓ </span>redis
-<span class="t-ok">  ✓ </span>elastic
-<span class="t-ok">  ✓ </span>kafka-bootstrap
-<span class="t-ok">  ✓ </span>api-internal
-<span class="t-mute">INFO  forwarding services...</span></pre>
+                        <pre class="terminal__body"><span class="t-prompt">$</span> brew install kubefwd
+<span class="t-prompt">$</span> sudo -E kubefwd svc -n my-namespace --tui
+<span class="t-mute">  press ? for help, q to quit</span>
+
+<span class="t-mute"># in another terminal — services resolve by name:</span>
+<span class="t-prompt">$</span> curl http://api-gateway:8080
+<span class="t-prompt">$</span> redis-cli -h cache -p 6379
+<span class="t-prompt">$</span> mysql -h database -P 3306</pre>
                     </div>
                 </div>
                 <footer class="flagship__foot">
@@ -225,10 +225,10 @@ flowchart TD
                 <header class="flagship__head">
                     <p class="flagship__id">HST-002 · go · <a class="flagship__url" href="https://txeh.txn2.com">txeh.txn2.com ↗</a></p>
                     <h3 class="flagship__name">txeh</h3>
-                    <p class="flagship__tag">Go library and CLI utility for <code>/etc/hosts</code> management.</p>
+                    <p class="flagship__tag">Scriptable, thread-safe <code>/etc/hosts</code> management.</p>
                 </header>
                 <div class="flagship__body">
-                    <p>Adds, removes, and lists entries in the system hosts file. Idempotent operations and stable formatting. Used internally by <code>kubefwd</code> and as a standalone utility.</p>
+                    <p>A Go library and CLI that originated as the substrate under <code>kubefwd</code>'s hosts-file rewrites and grew into a standalone utility. Mutex-protected for concurrent use, supports IPv4 + IPv6, CIDR ranges, comment-based grouping, and dry-run rendering. Preserves comments and file formatting on existing lines.</p>
                 </div>
                 <div class="flagship__demo" aria-hidden="true">
                     <div class="terminal">
@@ -236,13 +236,16 @@ flowchart TD
                             <span></span><span></span><span></span>
                             <em>~ — txeh</em>
                         </div>
-                        <pre class="terminal__body"><span class="t-prompt">$</span> txeh add 127.0.0.1 dev.local api.dev.local
-
-<span class="t-prompt">$</span> txeh list
+                        <pre class="terminal__body"><span class="t-prompt">$</span> brew install txn2/tap/txeh
+<span class="t-prompt">$</span> sudo txeh add 127.0.0.1 dev.local api.dev.local
+<span class="t-prompt">$</span> sudo txeh add 127.0.0.1 myapp --comment "local dev"
+<span class="t-prompt">$</span> sudo txeh add 127.1.27.100 staging.example.com -d
+<span class="t-mute">  # dry-run renders the file without saving:</span>
+<span class="t-mute">  127.0.0.1     localhost</span>
 <span class="t-mute">  127.0.0.1     dev.local api.dev.local</span>
-<span class="t-mute">  ::1           localhost</span>
-
-<span class="t-prompt">$</span> txeh remove dev.local</pre>
+<span class="t-mute">  127.0.0.1     myapp # local dev</span>
+<span class="t-mute">  127.1.27.100  staging.example.com</span>
+<span class="t-mute">  ::1           localhost</span></pre>
                     </div>
                 </div>
                 <footer class="flagship__foot">
@@ -270,7 +273,7 @@ flowchart TD
                 <span class="stack__num">001</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/portpxy">portpxy</a>
-                    <p class="stack__desc">HTTP proxy to a port specified on the request path.</p>
+                    <p class="stack__desc">HTTP reverse proxy that routes requests to backend ports specified in the URL path (<code>/8081/foo</code> → <code>backend:8081/foo</code>). Useful for exposing dynamic ports — NiFi listeners, webhook receivers — through a single Kubernetes ingress.</p>
                 </div>
                 <span class="stack__tag">network</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -279,7 +282,7 @@ flowchart TD
                 <span class="stack__num">002</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/jwtpxy">jwtpxy</a>
-                    <p class="stack__desc">Pre-validates and parses JWT web tokens into HTTP headers easily read by backend services.</p>
+                    <p class="stack__desc">Reverse proxy that pre-validates JWTs against Keycloak (or any OIDC realm) and forwards parsed claims as HTTP headers. Backend services read user, roles, and realm-access from headers — no token-handling library required.</p>
                 </div>
                 <span class="stack__tag">auth</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -288,7 +291,7 @@ flowchart TD
                 <span class="stack__num">003</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/amp">amp</a>
-                    <p class="stack__desc">Kubernetes Dynamic Admission Control mutating Webhook proxy for Pods.</p>
+                    <p class="stack__desc">Kubernetes Admission Mutation Proxy. Forwards Pod admission reviews to a custom HTTP endpoint and applies the JSONPatch operations it returns. Originally built to inject per-user volumes and env vars into JupyterHub-spawned Pods.</p>
                 </div>
                 <span class="stack__tag">k8s</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -297,7 +300,7 @@ flowchart TD
                 <span class="stack__num">004</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/rxtx">rxtx</a>
-                    <p class="stack__desc">Queue-based data collector and transmitter with store-and-forward. Online/offline data collection, back-pressure buffering.</p>
+                    <p class="stack__desc">Queue-based data collector with store-and-forward. Buffers HTTP POST data when downstream is offline, replays when it comes back. Built for IoT and edge collection where the network blinks.</p>
                 </div>
                 <span class="stack__tag">data</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -306,7 +309,7 @@ flowchart TD
                 <span class="stack__num">005</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/asws">asws</a>
-                    <p class="stack__desc">Static web server with a JSON REST API for exposing directory listings.</p>
+                    <p class="stack__desc">Another static web server. Serves a directory and exposes its listing through a JSON REST API — useful for download pages, asset catalogs, and any web app that wants to enumerate what's on disk without writing a backend.</p>
                 </div>
                 <span class="stack__tag">web</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -315,7 +318,7 @@ flowchart TD
                 <span class="stack__num">006</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/mcp-common">mcp-common</a>
-                    <p class="stack__desc">MCP Go library providing shared interfaces, types, and utilities for building composable Model Context Protocol servers.</p>
+                    <p class="stack__desc">Shared MCP Go library — interfaces, types, middleware patterns, and utilities. The substrate behind <code>mcp-trino</code>, <code>mcp-datahub</code>, <code>mcp-s3</code>, and any custom server that wants to drop into the same composable stack.</p>
                 </div>
                 <span class="stack__tag">mcp · lib</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
