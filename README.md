@@ -54,12 +54,14 @@ GitHub Pages source must be **"GitHub Actions"** (Settings, Pages, or `gh api -X
 
 | Path                              | Purpose                                                    |
 | --------------------------------- | ---------------------------------------------------------- |
+| `DESIGN.md`                       | Canonical visual identity spec (Google Labs DESIGN.md format). |
+| `tokens.json`                     | DTCG-compliant design tokens. Sidecar to DESIGN.md.        |
 | `config.toml`                     | Hugo + site config, params, GA4 ID                         |
 | `layouts/`                        | Custom Hugo templates (no theme; fully self-contained)     |
 | `layouts/index.html`              | Home page design                                           |
 | `layouts/_default/baseof.html`    | Base shell: meta, JSON-LD, fonts                           |
 | `layouts/robots.txt`              | Generated robots.txt with absolute sitemap URL             |
-| `static/css/site.css`             | All site styling                                           |
+| `static/css/site.css`             | All site styling. Runtime source of truth for tokens.      |
 | `static/js/site.js`               | UTC clock, scroll reveals, hero parallax                   |
 | `static/llms.txt`                 | Project index for LLM crawlers (per llmstxt.org)           |
 | `static/CNAME`                    | **Custom domain: `txn2.com`. Do not delete.**              |
