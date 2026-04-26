@@ -25,18 +25,28 @@ hugo --minify --gc
 
 ## Deploy
 
-Every push to `master` deploys the site. Pull requests run a build-only smoke test.
+Triggers that deploy the site:
 
-To cut a versioned release (the `rel.` stamp on the live site reads `git describe --tags`):
+- Push to `master`
+- Push of a `v*` tag (e.g. `v9.0.1`)
+- Publishing a GitHub Release
+- "Run workflow" from the Actions tab (optionally with a version override)
+
+Pull requests run a build-only smoke test.
+
+The `rel.` stamp on the live site is resolved in this order: workflow_dispatch input → release tag → pushed tag → `git describe --tags --abbrev=0` → `dev`.
 
 ```bash
-git tag v0.1.0
-git push origin master v0.1.0     # commit + tag in one push
+# tag-only release (re-deploys with that tag stamp):
+git tag v9.0.1 && git push origin v9.0.1
+
+# or commit + tag together:
+git push origin master v9.0.1
 ```
 
-GitHub Pages must be set to **Source: "GitHub Actions"** (Settings → Pages). If left as "Deploy from a branch" the auto `pages-build-deployment` workflow will run on every push and fail because `docs/` isn't committed.
+The `github-pages` environment is configured to allow `master` branch and `v*` tag deploys.
 
-Manual deploys are available from the Actions tab via "Run workflow" — optionally pass a version override.
+GitHub Pages source must be **"GitHub Actions"** (Settings → Pages, or `gh api -X PUT repos/<org>/<repo>/pages -f build_type=workflow`). If left as "Deploy from a branch" the auto `pages-build-deployment` workflow will run on every push and fail because `docs/` isn't committed.
 
 ## Structure
 

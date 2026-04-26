@@ -26,8 +26,8 @@
             <span>los angeles, ca</span>
         </div>
         <nav class="rail__nav" aria-label="primary">
-            <a href="#cli">cli</a>
             <a href="#mcp">mcp</a>
+            <a href="#utilities">utilities</a>
             <a href="#stack">stack</a>
             <a href="https://github.com/txn2" class="rail__cta">github ↗</a>
         </nav>
@@ -56,7 +56,7 @@
 
         <div class="hero__intro">
             <p class="hero__lede">
-                <span class="dropcap">t</span>xn2 is an open source organization for components developed by <strong>Craig Johnston</strong>, sponsored by <a href="https://deasil.works">Deasil Works, Inc.</a> and <a href="https://plexara.io">Plexara</a>. Includes command-line tools, Go libraries, and Model Context Protocol servers covering Kubernetes networking, host-file management, object storage, distributed SQL, and metadata catalogs.
+                <span class="dropcap">t</span>xn2 is an open source organization for components developed by <strong>Craig Johnston</strong>, sponsored by <a href="https://deasil.works">Deasil Works, Inc.</a> and <a href="https://plexara.io">Plexara</a>. Includes Model Context Protocol servers, command-line tools, and Go libraries covering the modern data stack, Kubernetes networking, and host-file management.
             </p>
             <p class="hero__lede hero__lede--muted">
                 All components are released on <a href="https://github.com/txn2">GitHub</a> under the MIT or Apache 2.0 license.
@@ -66,31 +66,123 @@
         <aside class="hero__ticker" aria-hidden="true">
             <div class="ticker">
                 <div class="ticker__track">
-                    <span>kubefwd</span><span>·</span>
-                    <span>txeh</span><span>·</span>
                     <span>mcp-data-platform</span><span>·</span>
                     <span>mcp-trino</span><span>·</span>
                     <span>mcp-s3</span><span>·</span>
                     <span>mcp-datahub</span><span>·</span>
-                    <span>port-proxy</span><span>·</span>
-                    <span>jwtpxy</span><span>·</span>
                     <span>kubefwd</span><span>·</span>
                     <span>txeh</span><span>·</span>
+                    <span>portpxy</span><span>·</span>
+                    <span>jwtpxy</span><span>·</span>
+                    <span>amp</span><span>·</span>
+                    <span>rxtx</span><span>·</span>
+                    <span>asws</span><span>·</span>
+                    <span>mcp-common</span><span>·</span>
                     <span>mcp-data-platform</span><span>·</span>
                     <span>mcp-trino</span><span>·</span>
                     <span>mcp-s3</span><span>·</span>
                     <span>mcp-datahub</span><span>·</span>
-                    <span>port-proxy</span><span>·</span>
+                    <span>kubefwd</span><span>·</span>
+                    <span>txeh</span><span>·</span>
+                    <span>portpxy</span><span>·</span>
                     <span>jwtpxy</span><span>·</span>
+                    <span>amp</span><span>·</span>
+                    <span>rxtx</span><span>·</span>
+                    <span>asws</span><span>·</span>
+                    <span>mcp-common</span><span>·</span>
                 </div>
             </div>
         </aside>
     </section>
 
-    {{/* ─── CLI / LIBRARIES ────────────────────────────────────── */}}
-    <section class="section section--flagship" id="cli">
+    {{/* ─── MCP SERVERS (lead) ─────────────────────────────────── */}}
+    <section class="section section--mcp" id="mcp">
+        <header class="section__head section__head--mcp">
+            <p class="section__index">§ 01 — model context protocol servers</p>
+            <h2 class="section__title">
+                MCP servers for the <em class="serif">data stack</em>
+            </h2>
+            <p class="section__lede">
+                Model Context Protocol servers exposing object storage, distributed SQL engines, and metadata catalogs to MCP-capable clients.
+            </p>
+        </header>
+
+        <div class="mcp">
+            {{/* big card */}}
+            <article class="mcp__card mcp__card--feature">
+                <div class="mcp__feature__bg" aria-hidden="true"></div>
+                <p class="mcp__id">platform</p>
+                <h3 class="mcp__name mcp__name--big"><em class="serif">mcp-data-platform</em></h3>
+                <p class="mcp__tag">A semantic data platform MCP server that composes multiple data tools with bidirectional cross-injection — tool responses automatically include critical context from other services.</p>
+                <ul class="mcp__list">
+                    <li>composes <code>mcp-s3</code>, <code>mcp-trino</code>, and <code>mcp-datahub</code> behind a single endpoint</li>
+                    <li>bidirectional cross-injection: tool responses include context from sibling services</li>
+                    <li>persistent memory and insight capture across sessions</li>
+                    <li>artifact storage and prompt management</li>
+                </ul>
+                <div class="mcp__cta">
+                    <a class="btn btn--accent" href="https://mcp-data-platform.txn2.com">visit mcp-data-platform.txn2.com →</a>
+                    <a class="btn" href="https://github.com/txn2/mcp-data-platform" aria-label="mcp-data-platform source on GitHub">source ↗</a>
+                </div>
+                <figure class="mcp__schema" aria-label="mcp-data-platform composes mcp-s3, mcp-trino, mcp-datahub, and an in-process memory store, all behind a single MCP endpoint">
+                    <pre class="mermaid">
+flowchart TD
+    Client["mcp-capable&#10;llm / agent"]
+    Platform["mcp-data-platform"]
+    S3["mcp-s3"]
+    Trino["mcp-trino"]
+    DH["mcp-datahub"]
+    Mem["memory&#10;insight capture"]
+
+    Client ==>|MCP| Platform
+    Platform --> S3
+    Platform --> Trino
+    Platform --> DH
+    Platform --> Mem
+
+    classDef default fill:#15140F,stroke:#3A3830,color:#ECE3CE
+    classDef accent  fill:#15140F,stroke:#FF5A1F,color:#ECE3CE
+    class Platform accent
+                    </pre>
+                </figure>
+            </article>
+
+            <article class="mcp__card">
+                <p class="mcp__id">obj · 01</p>
+                <h3 class="mcp__name">mcp-s3</h3>
+                <p class="mcp__tag">A Model Context Protocol server for Amazon S3 and S3-compatible object storage. Browse buckets, read and write objects, and generate presigned URLs.</p>
+                <div class="mcp__links">
+                    <a class="mcp__link mcp__link--primary" href="https://mcp-s3.txn2.com">mcp-s3.txn2.com →</a>
+                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-s3" aria-label="mcp-s3 source on GitHub">source ↗</a>
+                </div>
+            </article>
+
+            <article class="mcp__card">
+                <p class="mcp__id">sql · 02</p>
+                <h3 class="mcp__name">mcp-trino</h3>
+                <p class="mcp__tag">A Model Context Protocol server for Trino, enabling AI assistants to query and explore data warehouses.</p>
+                <div class="mcp__links">
+                    <a class="mcp__link mcp__link--primary" href="https://mcp-trino.txn2.com">mcp-trino.txn2.com →</a>
+                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-trino" aria-label="mcp-trino source on GitHub">source ↗</a>
+                </div>
+            </article>
+
+            <article class="mcp__card">
+                <p class="mcp__id">meta · 03</p>
+                <h3 class="mcp__name">mcp-datahub</h3>
+                <p class="mcp__tag">DataHub MCP server and composable Go library for building custom MCP servers that integrate DataHub metadata capabilities. Part of the txn2 MCP toolkit ecosystem.</p>
+                <div class="mcp__links">
+                    <a class="mcp__link mcp__link--primary" href="https://mcp-datahub.txn2.com">mcp-datahub.txn2.com →</a>
+                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-datahub" aria-label="mcp-datahub source on GitHub">source ↗</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    {{/* ─── UTILITIES (kubefwd, txeh) ──────────────────────────── */}}
+    <section class="section section--flagship" id="utilities">
         <header class="section__head">
-            <p class="section__index">§ 01 — command-line tools &amp; libraries</p>
+            <p class="section__index">§ 02 — utilities</p>
             <h2 class="section__title">
                 <em class="serif">kubefwd</em> · txeh
             </h2>
@@ -101,7 +193,7 @@
                 <header class="flagship__head">
                     <p class="flagship__id">FWD-001 · go · <a class="flagship__url" href="https://kubefwd.com">kubefwd.com ↗</a></p>
                     <h3 class="flagship__name">kubefwd</h3>
-                    <p class="flagship__tag">Bulk port-forward Kubernetes services to a local network.</p>
+                    <p class="flagship__tag">Bulk port forwarding Kubernetes services for local development.</p>
                 </header>
                 <div class="flagship__body">
                     <p>Walks one or more Kubernetes namespaces, opens a port-forward for every service, and writes hostname entries into <code>/etc/hosts</code> so service names resolve directly on the local machine. Written in Go.</p>
@@ -133,7 +225,7 @@
                 <header class="flagship__head">
                     <p class="flagship__id">HST-002 · go · <a class="flagship__url" href="https://txeh.txn2.com">txeh.txn2.com ↗</a></p>
                     <h3 class="flagship__name">txeh</h3>
-                    <p class="flagship__tag">Go library and command-line tool for managing <code>/etc/hosts</code>.</p>
+                    <p class="flagship__tag">Go library and CLI utility for <code>/etc/hosts</code> management.</p>
                 </header>
                 <div class="flagship__body">
                     <p>Adds, removes, and lists entries in the system hosts file. Idempotent operations and stable formatting. Used internally by <code>kubefwd</code> and as a standalone utility.</p>
@@ -161,81 +253,6 @@
         </div>
     </section>
 
-    {{/* ─── MCP SERVERS ────────────────────────────────────────── */}}
-    <section class="section section--mcp" id="mcp">
-        <header class="section__head section__head--mcp">
-            <p class="section__index">§ 02 — model context protocol servers</p>
-            <h2 class="section__title">
-                MCP servers for the <em class="serif">data stack</em>
-            </h2>
-            <p class="section__lede">
-                Model Context Protocol servers exposing object storage, distributed SQL engines, and metadata catalogs to MCP-capable clients.
-            </p>
-        </header>
-
-        <div class="mcp">
-            {{/* big card */}}
-            <article class="mcp__card mcp__card--feature">
-                <div class="mcp__feature__bg" aria-hidden="true"></div>
-                <p class="mcp__id">platform</p>
-                <h3 class="mcp__name mcp__name--big"><em class="serif">mcp-data-platform</em></h3>
-                <p class="mcp__tag">MCP server providing integrated access to S3-compatible object storage, the Trino distributed SQL query engine, and the DataHub metadata platform from a single endpoint.</p>
-                <ul class="mcp__list">
-                    <li>browse, query, and inspect across S3, Trino, and DataHub</li>
-                    <li>persistent memory and insight capture across sessions</li>
-                    <li>artifact storage and prompt management</li>
-                    <li>single-server alternative to running each MCP integration separately</li>
-                </ul>
-                <div class="mcp__cta">
-                    <a class="btn btn--accent" href="https://mcp-data-platform.txn2.com">visit mcp-data-platform.txn2.com →</a>
-                    <a class="btn" href="https://github.com/txn2/mcp-data-platform" aria-label="mcp-data-platform source on GitHub">source ↗</a>
-                </div>
-                <div class="mcp__schema" aria-hidden="true">
-                    <pre>┌──── client ───┐
-│   mcp-capable │
-│   llm / agent │
-└───────┬───────┘
-        │ mcp
-┌───────┴───────────────────────┐
-│      mcp-data-platform        │
-└──┬──────┬──────┬──────┬───────┘
-   │      │      │      │
-  s3    trino  hub   memory</pre>
-                </div>
-            </article>
-
-            <article class="mcp__card">
-                <p class="mcp__id">obj · 01</p>
-                <h3 class="mcp__name">mcp-s3</h3>
-                <p class="mcp__tag">MCP server for S3-compatible object storage. List buckets, list and fetch objects, retrieve metadata, and generate presigned URLs.</p>
-                <div class="mcp__links">
-                    <a class="mcp__link mcp__link--primary" href="https://mcp-s3.txn2.com">mcp-s3.txn2.com →</a>
-                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-s3" aria-label="mcp-s3 source on GitHub">source ↗</a>
-                </div>
-            </article>
-
-            <article class="mcp__card">
-                <p class="mcp__id">sql · 02</p>
-                <h3 class="mcp__name">mcp-trino</h3>
-                <p class="mcp__tag">MCP server for Trino. Browse catalogs and schemas, describe tables, run and EXPLAIN SQL queries, and export result sets.</p>
-                <div class="mcp__links">
-                    <a class="mcp__link mcp__link--primary" href="https://mcp-trino.txn2.com">mcp-trino.txn2.com →</a>
-                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-trino" aria-label="mcp-trino source on GitHub">source ↗</a>
-                </div>
-            </article>
-
-            <article class="mcp__card">
-                <p class="mcp__id">meta · 03</p>
-                <h3 class="mcp__name">mcp-datahub</h3>
-                <p class="mcp__tag">MCP server for DataHub. Search the metadata catalog, walk lineage, retrieve schemas, glossary terms, and data products.</p>
-                <div class="mcp__links">
-                    <a class="mcp__link mcp__link--primary" href="https://mcp-datahub.txn2.com">mcp-datahub.txn2.com →</a>
-                    <a class="mcp__link mcp__link--source" href="https://github.com/txn2/mcp-datahub" aria-label="mcp-datahub source on GitHub">source ↗</a>
-                </div>
-            </article>
-        </div>
-    </section>
-
     {{/* ─── REST OF THE STACK ──────────────────────────────────── */}}
     <section class="section section--stack" id="stack">
         <header class="section__head">
@@ -252,8 +269,8 @@
             <li class="stack__row">
                 <span class="stack__num">001</span>
                 <div class="stack__main">
-                    <a class="stack__name" href="https://github.com/txn2/port-proxy">port-proxy</a>
-                    <p class="stack__desc">Lightweight TCP/UDP port proxy.</p>
+                    <a class="stack__name" href="https://github.com/txn2/portpxy">portpxy</a>
+                    <p class="stack__desc">HTTP proxy to a port specified on the request path.</p>
                 </div>
                 <span class="stack__tag">network</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -262,7 +279,7 @@
                 <span class="stack__num">002</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/jwtpxy">jwtpxy</a>
-                    <p class="stack__desc">Reverse proxy that issues and validates JSON Web Tokens.</p>
+                    <p class="stack__desc">Pre-validates and parses JWT web tokens into HTTP headers easily read by backend services.</p>
                 </div>
                 <span class="stack__tag">auth</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -270,44 +287,44 @@
             <li class="stack__row">
                 <span class="stack__num">003</span>
                 <div class="stack__main">
-                    <a class="stack__name" href="https://github.com/txn2/mcp-amp">mcp-amp</a>
-                    <p class="stack__desc">Model Context Protocol server for orchestration and automation workflows.</p>
-                </div>
-                <span class="stack__tag">mcp</span>
-                <span class="stack__year" aria-hidden="true">↗</span>
-            </li>
-            <li class="stack__row">
-                <span class="stack__num">004</span>
-                <div class="stack__main">
-                    <a class="stack__name" href="https://github.com/txn2/n2proxy">n2proxy</a>
-                    <p class="stack__desc">HTTP reverse proxy with content rewriting.</p>
-                </div>
-                <span class="stack__tag">network</span>
-                <span class="stack__year" aria-hidden="true">↗</span>
-            </li>
-            <li class="stack__row">
-                <span class="stack__num">005</span>
-                <div class="stack__main">
-                    <a class="stack__name" href="https://github.com/txn2/n2x">n2x</a>
-                    <p class="stack__desc">Kubernetes scripting and execution helper.</p>
+                    <a class="stack__name" href="https://github.com/txn2/amp">amp</a>
+                    <p class="stack__desc">Kubernetes Dynamic Admission Control mutating Webhook proxy for Pods.</p>
                 </div>
                 <span class="stack__tag">k8s</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row">
-                <span class="stack__num">006</span>
+                <span class="stack__num">004</span>
                 <div class="stack__main">
-                    <a class="stack__name" href="https://github.com/txn2/dmk">dmk</a>
-                    <p class="stack__desc">Data migration kit.</p>
+                    <a class="stack__name" href="https://github.com/txn2/rxtx">rxtx</a>
+                    <p class="stack__desc">Queue-based data collector and transmitter with store-and-forward. Online/offline data collection, back-pressure buffering.</p>
                 </div>
                 <span class="stack__tag">data</span>
+                <span class="stack__year" aria-hidden="true">↗</span>
+            </li>
+            <li class="stack__row">
+                <span class="stack__num">005</span>
+                <div class="stack__main">
+                    <a class="stack__name" href="https://github.com/txn2/asws">asws</a>
+                    <p class="stack__desc">Static web server with a JSON REST API for exposing directory listings.</p>
+                </div>
+                <span class="stack__tag">web</span>
+                <span class="stack__year" aria-hidden="true">↗</span>
+            </li>
+            <li class="stack__row">
+                <span class="stack__num">006</span>
+                <div class="stack__main">
+                    <a class="stack__name" href="https://github.com/txn2/mcp-common">mcp-common</a>
+                    <p class="stack__desc">MCP Go library providing shared interfaces, types, and utilities for building composable Model Context Protocol servers.</p>
+                </div>
+                <span class="stack__tag">mcp · lib</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row stack__row--more">
                 <span class="stack__num">···</span>
                 <div class="stack__main">
-                    <a class="stack__name" href="https://github.com/txn2?tab=repositories">all repositories on github</a>
-                    <p class="stack__desc">Full list of repositories under the txn2 organization.</p>
+                    <a class="stack__name" href="https://github.com/txn2?tab=repositories&type=source">all repositories on github</a>
+                    <p class="stack__desc">Full list of source repositories under the txn2 organization.</p>
                 </div>
                 <span class="stack__tag">+ more</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
@@ -334,4 +351,30 @@
     </section>
 
 </main>
+
+{{/* ─── Mermaid (lazy-load only when a diagram is on the page) ── */}}
+<script type="module">
+    if (document.querySelector('.mermaid')) {
+        const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');
+        mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: 'strict',
+            theme: 'base',
+            themeVariables: {
+                background:         '#15140F',
+                primaryColor:       '#15140F',
+                primaryTextColor:   '#ECE3CE',
+                primaryBorderColor: '#3A3830',
+                secondaryColor:     '#1B1A15',
+                tertiaryColor:      '#15140F',
+                lineColor:          '#968F80',
+                textColor:          '#ECE3CE',
+                fontFamily:         '"JetBrains Mono", ui-monospace, monospace',
+                fontSize:           '13px'
+            },
+            flowchart: { curve: 'basis', padding: 16 }
+        });
+        await mermaid.run({ querySelector: '.mermaid' });
+    }
+</script>
 {{ end }}
