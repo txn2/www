@@ -240,6 +240,65 @@ Three rows with hand-tuned indents. Italic outer rows, outline (`-webkit-text-st
 Do: keep the indent asymmetry. The hero is the anchor of the page.
 Don't: centre the hero. The page is left-aligned and asymmetric on purpose.
 
+This indent-asymmetry variant is reserved for the txn2.com org landing. Every project site (kubefwd, txeh, mcp-s3, mcp-trino, mcp-datahub, mcp-data-platform) uses the `.hero__main` variant below instead.
+
+### `.hero__main` and `.hero__mark` (project symbol + display)
+
+Project sites pair the typographic display with a square geometric symbol mark on its left. `.hero__main` is a flex container; `.hero__mark` holds the inline SVG glyph; `.hero__display` retains the three-row Fraunces stack but drops the asymmetric indents (the symbol takes the role of the visual anchor).
+
+```html
+<div class="hero__main">
+  <a class="hero__mark" href="https://github.com/txn2/PROJECT" aria-label="PROJECT on GitHub">
+    <svg class="hero__mark__svg" viewBox="10 10 80 80" role="img" aria-label="PROJECT symbol">
+      <path class="hero__mark__path hero__mark__path--base"   d="..."/>
+      <path class="hero__mark__path hero__mark__path--accent" d="..."/>
+    </svg>
+  </a>
+  <h1 class="hero__display">
+    <span class="hero__row hero__row--1"><em class="serif">project</em></span>
+    <span class="hero__row hero__row--2"><span class="outline">tagline</span></span>
+    <span class="hero__row hero__row--3"><em class="serif">closer.</em></span>
+  </h1>
+</div>
+```
+
+Sizing (verified on `mcp-s3.txn2.com`):
+
+| Token                       | Value                                             |
+|-----------------------------|---------------------------------------------------|
+| `.hero__main` gap           | `clamp(24px, 4vw, 64px)`                          |
+| `.hero__mark` width / height| `clamp(144px, 20vw, 288px)` (square)              |
+| `.hero__display` font-size  | `clamp(44px, 8vw, 140px)` line-height `0.95`      |
+
+`.hero__main` is `display: flex; align-items: center;`. Hero rows lose the upstream `padding-left` indents and stack flush-left next to the mark. Below 880px viewport, `.hero__main` switches to `flex-direction: column;` and `.hero__mark` scales to `clamp(108px, 25vw, 180px)`.
+
+Symbol contract:
+
+- Square SVG, viewBox `10 10 80 80` (or another square box). Two paths only.
+- `.hero__mark__path--base`   filled `var(--paper)`. Structural linework.
+- `.hero__mark__path--accent` filled `var(--signal)`. One bold geometric shape per symbol.
+- The accent path breathes:
+  ```css
+  .hero__mark__path--accent {
+    fill: var(--signal);
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    animation: mark-breath 6s ease-in-out infinite;
+  }
+  @keyframes mark-breath {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.06); }
+  }
+  ```
+- The `<svg>` needs `overflow: visible;` so the scaled accent does not clip at the viewBox edge.
+- On `.hero__mark:hover`, `transform: rotate(-8deg) scale(1.03);` over `0.45s ease` and the breath accelerates to `2.2s`.
+- `prefers-reduced-motion: reduce` cancels the breath.
+
+Do: keep one accent shape per symbol so the single-signal-orange rule holds.
+Don't: use a typographic logotype in `.hero__mark`. The mark is geometric. Wordmarks live in the rail and in `.hero__display`.
+
+The mark file lives at `docs/images/PROJECT-symbol.svg` (mkdocs project sites) or `static/images/PROJECT-symbol.svg` (Hugo). Strip width/height from the file root and rely on viewBox so the mark scales cleanly to any container.
+
 ### `.flagship__card` (kubefwd, txeh)
 
 Used for the two utility cards. Top accent line in signal orange grows from 56px to 100% on hover. No shadow.
@@ -338,6 +397,127 @@ Design rules that overrule taste:
 - **Mermaid for architecture diagrams.** Never ASCII art.
 - **Skip-to-content link and `:focus-visible` outlines on every interactive element.** No exceptions.
 - **WCAG AA contrast at all sizes.** `mute` was tuned for this; do not introduce a new muted colour without checking it.
+
+## SEO and social cards
+
+Every txn2 site (org landing and project sites) ships the same SEO surface so social shares, search results, and LLM crawlers all read consistently.
+
+### Required meta tags
+
+Every page emits these. On MkDocs Material project sites this lives in `docs/overrides/main.html` `{% block extrahead %}`. On the Hugo org site it lives in the head partial.
+
+```html
+<meta name="description" content="{{ site_description }}">
+<meta name="keywords"    content="...">
+<meta name="author"      content="{{ site_author }}">
+
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="{{ site_name }}">
+<meta property="og:locale"      content="en_US">
+<meta property="og:url"         content="{{ canonical_url }}">
+<meta property="og:title"       content="{{ social_title }}">
+<meta property="og:description" content="{{ site_description }}">
+<meta property="og:image"       content="{{ site_url }}images/PROJECT-og.png">
+<meta property="og:image:type"  content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt"   content="...">
+
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:url"         content="{{ canonical_url }}">
+<meta name="twitter:title"       content="{{ social_title }}">
+<meta name="twitter:description" content="{{ site_description }}">
+<meta name="twitter:image"       content="{{ site_url }}images/PROJECT-og.png">
+<meta name="twitter:image:alt"   content="...">
+<meta name="twitter:creator"     content="@cjimti">
+<meta name="twitter:site"        content="@cjimti">
+
+<link rel="canonical" href="{{ canonical_url }}">
+```
+
+The `social_title` differs from `<title>` only on the homepage, where it carries the marquee tagline (`mcp-s3 / MCP server for Amazon S3 and S3-compatible storage`). Inner pages use `{{ page.title }} · {{ site_name }}`.
+
+### JSON-LD structured data
+
+Every page emits a `SoftwareApplication` block. Search engines dedupe across pages, so emitting it everywhere is fine and removes per-page bookkeeping.
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PROJECT",
+  "alternateName": "txn2/PROJECT",
+  "description": "...",
+  "url": "{{ site_url }}",
+  "image": "{{ site_url }}images/PROJECT-og.png",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux, macOS, Windows",
+  "programmingLanguage": "Go",
+  "codeRepository": "https://github.com/txn2/PROJECT",
+  "license": "https://www.apache.org/licenses/LICENSE-2.0",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author":    { "@type": "Person",       "name": "Craig Johnston", "url": "https://imti.co" },
+  "publisher": { "@type": "Organization", "name": "txn2",            "url": "https://txn2.com" }
+}
+</script>
+```
+
+### `PROJECT-og.png` (open graph card)
+
+Every project ships a `1200 x 630` PNG OG card at `docs/images/PROJECT-og.png`. The card mirrors the homepage hero, not a screenshot of the app. Composition:
+
+- Warm-black canvas (`#0B0B09`) with the same subtle warm-tint radial wash and 60px blueprint grid at `0.04` opacity used by the rail.
+- Crosshair ticks at all four corners (`#5A554B`, 28px arms).
+- Top rail strip: Fraunces italic project name + JetBrains Mono subtitle on the left, signal-orange `TXN2 / OPEN SOURCE` capsule on the right, 1px rule below.
+- Centre: project symbol mark on the left at ~280px square (the `.hero__mark` glyph; paper linework + signal-orange accent), three-row Fraunces display on the right (`mcp-s3` / `object storage` / `for ai.`) with the middle row as a `-webkit-text-stroke` outline.
+- Bottom strip: 1px rule, signal-orange registration tick + JetBrains Mono mono caption (`APACHE 2.0  ·  COMPOSABLE MCP SERVER  ·  GO  ·  READ-ONLY BY DEFAULT`) on the left, signal-orange `PROJECT.TXN2.COM ↗` on the right.
+
+The card is authored as an SVG (`docs/images/PROJECT-og.svg`) and rasterised to PNG at 1200 x 630 with `rsvg-convert`. Both files ship; the PNG is what social platforms fetch, the SVG is the source of truth.
+
+```bash
+rsvg-convert -w 1200 -h 630 -o docs/images/PROJECT-og.png docs/images/PROJECT-og.svg
+```
+
+Fonts in the SVG: declare `font-family="Fraunces, Georgia, serif"` and `font-family="JetBrains Mono, Menlo, monospace"` so rasterisation falls back gracefully when the design fonts are not installed locally. Do not embed full font files in the SVG; the PNG already captures the rendered glyphs.
+
+### `llms.txt`
+
+Every project ships an `llms.txt` at the docs root following the [llms.txt convention](https://llmstxt.org). Keep it under ~120 lines. Structure:
+
+```
+# PROJECT
+
+> One-paragraph summary, scrape-grade.
+
+Two-sentence positioning paragraph.
+
+## MCP Server  (or whatever the primary surface is)
+- [Page name](https://PROJECT.txn2.com/path/): One-line purpose
+
+## Go Library
+...
+
+## Reference
+...
+
+## Key Capabilities
+- bullet
+- bullet
+
+## Quick Start
+` ` `bash
+...
+` ` `
+
+## Optional
+- [Troubleshooting](...): ...
+- [GitHub Repository](https://github.com/txn2/PROJECT): ...
+```
+
+### sitemap.xml and robots.txt
+
+MkDocs Material emits `sitemap.xml` and `sitemap.xml.gz` at build time. Hugo emits `sitemap.xml` from `config.toml`. Neither needs hand-tuning. Do not ship a `robots.txt` unless you intend to block something specific; the absence of one is the correct default for an open-source documentation site.
 
 ## Voice and Copy
 
