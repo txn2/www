@@ -111,7 +111,10 @@
             {{/* feature card */}}
             <article class="mcp__card mcp__card--feature">
                 <div class="mcp__feature__bg" aria-hidden="true"></div>
-                <p class="mcp__id">platform</p>
+                <header class="mcp__head">
+                    <img class="mcp__symbol mcp__symbol--feature" src="{{ "images/logos/mcp-data-platform.svg" | absURL }}" alt="" aria-hidden="true" loading="lazy" width="64" height="64">
+                    <p class="mcp__id">platform</p>
+                </header>
                 <h3 class="mcp__name mcp__name--big"><em class="serif">mcp-data-platform</em></h3>
                 <p class="mcp__tag">An AI assistant can run SQL, but it doesn't know that <code>cust_id</code> is PII, that the table was deprecated last month, or who to ask when something breaks. <strong>mcp-data-platform fixes that.</strong> It connects assistants to your data infrastructure and adds business context from your semantic layer. Query a Trino table and get its meaning, owners, quality scores, and deprecation warnings in the same response.</p>
                 <ul class="mcp__list">
@@ -149,7 +152,10 @@ flowchart TD
             </article>
 
             <article class="mcp__card">
-                <p class="mcp__id">obj · 01</p>
+                <header class="mcp__head">
+                    <img class="mcp__symbol" src="{{ "images/logos/mcp-s3.svg" | absURL }}" alt="" aria-hidden="true" loading="lazy" width="48" height="48">
+                    <p class="mcp__id">obj · 01</p>
+                </header>
                 <h3 class="mcp__name">mcp-s3</h3>
                 <p class="mcp__tag">Connects S3-compatible storage to MCP clients with read-only mode, size limits, prefix-based ACLs, and audit logging. Works with AWS S3, SeaweedFS, LocalStack, MinIO, or anything that speaks S3. Multi-account from a single installation.</p>
                 <div class="mcp__links">
@@ -159,7 +165,10 @@ flowchart TD
             </article>
 
             <article class="mcp__card">
-                <p class="mcp__id">sql · 02</p>
+                <header class="mcp__head">
+                    <img class="mcp__symbol" src="{{ "images/logos/mcp-trino.svg" | absURL }}" alt="" aria-hidden="true" loading="lazy" width="48" height="48">
+                    <p class="mcp__id">sql · 02</p>
+                </header>
                 <h3 class="mcp__name">mcp-trino</h3>
                 <p class="mcp__tag">Connects Trino to MCP clients with an optional semantic layer. Surfaces business descriptions, ownership, and quality scores from metadata catalogs alongside query results, and marks sensitive columns so an AI assistant knows what not to read. Multi-cluster from one install.</p>
                 <div class="mcp__links">
@@ -169,7 +178,10 @@ flowchart TD
             </article>
 
             <article class="mcp__card">
-                <p class="mcp__id">meta · 03</p>
+                <header class="mcp__head">
+                    <img class="mcp__symbol" src="{{ "images/logos/mcp-datahub.svg" | absURL }}" alt="" aria-hidden="true" loading="lazy" width="48" height="48">
+                    <p class="mcp__id">meta · 03</p>
+                </header>
                 <h3 class="mcp__name">mcp-datahub</h3>
                 <p class="mcp__tag">MCP server and Go library for DataHub. Search datasets, explore schemas, trace lineage, and read glossary terms, domains, and ownership. Ships as a standalone binary, a one-click Claude Desktop <code>.mcpb</code> bundle, or a composable library.</p>
                 <div class="mcp__links">
