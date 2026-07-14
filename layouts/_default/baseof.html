@@ -129,8 +129,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ "images/icon/favicon-32x32.png" | absURL }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ "images/icon/favicon-16x16.png" | absURL }}">
     <link rel="manifest" href="{{ "images/icon/manifest.json" | absURL }}">
-    <meta name="theme-color" content="#0B0B09">
-    <meta name="msapplication-TileColor" content="#0B0B09">
+    <meta name="theme-color" content="#1E232A">
+    <meta name="msapplication-TileColor" content="#1E232A">
 
     {{ with .OutputFormats.Get "RSS" -}}
         <link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title }}">
@@ -139,10 +139,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {{/* Trimmed font axes: only the families/weights the site actually uses.
-         Fraunces: italic + roman with opsz/wght (drop SOFT axis to cut payload).
-         Instrument Sans: roman only, 400-700.
-         JetBrains Mono: roman only, 400-700. */}}
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+         Geist: body and UI, weights 400-700.
+         Geist Mono: display headings, rail, labels, terminal, weights 400-600. */}}
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ "css/site.css" | absURL }}">
 </head>

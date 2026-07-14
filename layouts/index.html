@@ -21,8 +21,6 @@
         <div class="rail__meta" aria-hidden="true">
             <span class="rail__rel">rel. {{ .Site.Params.version | default "dev" }}</span>
             <span class="rail__dot">●</span>
-            <span data-clock>·· UTC</span>
-            <span class="rail__dot">●</span>
             <span>los angeles, ca</span>
         </div>
         <nav class="rail__nav" aria-label="primary">
@@ -56,7 +54,7 @@
 
         <div class="hero__intro">
             <p class="hero__lede">
-                <span class="dropcap">t</span>xn2 is an open source organization for components developed by <strong>Craig Johnston</strong>, sponsored by <a href="https://deasil.works">Deasil Works, Inc.</a> and <a href="https://plexara.io">Plexara</a>. Includes Model Context Protocol servers, command-line tools, and Go libraries covering the modern data stack, Kubernetes networking, and host-file management.
+                txn2 is an open source organization for components developed by <strong>Craig Johnston</strong>, sponsored by <a href="https://deasil.works">Deasil Works, Inc.</a> and <a href="https://plexara.io">Plexara</a>. Includes Model Context Protocol servers, command-line tools, and Go libraries covering the modern data stack, Kubernetes networking, and host-file management.
             </p>
             <p class="hero__lede hero__lede--muted">
                 All components are released on <a href="https://github.com/txn2">GitHub</a> under the MIT or Apache 2.0 license.
@@ -144,8 +142,8 @@ flowchart TD
     Platform --> DH
     Platform --> Mem
 
-    classDef default fill:#15140F,stroke:#3A3830,color:#ECE3CE
-    classDef accent  fill:#15140F,stroke:#FF5A1F,color:#ECE3CE
+    classDef default fill:#2F3640,stroke:#47515C,color:#EDF1F5
+    classDef accent  fill:#2F3640,stroke:#4FC7E6,color:#EDF1F5
     class Platform accent
                     </pre>
                 </figure>
@@ -280,71 +278,57 @@ flowchart TD
             </p>
         </header>
 
-        <ol class="stack">
+        <ul class="stack">
             <li class="stack__row">
-                <span class="stack__num">001</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/portpxy">portpxy</a>
                     <p class="stack__desc">HTTP reverse proxy that routes requests to backend ports specified in the URL path (<code>/8081/foo</code> → <code>backend:8081/foo</code>). Useful for exposing dynamic ports (NiFi listeners, webhook receivers) through a single Kubernetes ingress.</p>
                 </div>
-                <span class="stack__tag">network</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row">
-                <span class="stack__num">002</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/jwtpxy">jwtpxy</a>
                     <p class="stack__desc">Reverse proxy that pre-validates JWTs against Keycloak (or any OIDC realm) and forwards parsed claims as HTTP headers. Backend services read user, roles, and realm-access from headers. No token-handling library required.</p>
                 </div>
-                <span class="stack__tag">auth</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row">
-                <span class="stack__num">003</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/amp">amp</a>
                     <p class="stack__desc">Kubernetes Admission Mutation Proxy. Forwards Pod admission reviews to a custom HTTP endpoint and applies the JSONPatch operations it returns. Originally built to inject per-user volumes and env vars into JupyterHub-spawned Pods.</p>
                 </div>
-                <span class="stack__tag">k8s</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row">
-                <span class="stack__num">004</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/rxtx">rxtx</a>
                     <p class="stack__desc">Queue-based data collector with store-and-forward. Buffers HTTP POST data when downstream is offline, replays when it comes back. Built for IoT and edge collection where the network blinks.</p>
                 </div>
-                <span class="stack__tag">data</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row">
-                <span class="stack__num">005</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/asws">asws</a>
                     <p class="stack__desc">Another static web server. Serves a directory and exposes its listing through a JSON REST API. Useful for download pages, asset catalogs, and any web app that wants to enumerate what's on disk without writing a backend.</p>
                 </div>
-                <span class="stack__tag">web</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row">
-                <span class="stack__num">006</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2/mcp-common">mcp-common</a>
                     <p class="stack__desc">Shared MCP Go library: interfaces, types, middleware patterns, and utilities. The substrate behind <code>mcp-trino</code>, <code>mcp-datahub</code>, <code>mcp-s3</code>, and any custom server that wants to drop into the same composable stack.</p>
                 </div>
-                <span class="stack__tag">mcp · lib</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
             </li>
             <li class="stack__row stack__row--more">
-                <span class="stack__num">···</span>
                 <div class="stack__main">
                     <a class="stack__name" href="https://github.com/txn2?tab=repositories&type=source">all repositories on github</a>
                     <p class="stack__desc">Full list of source repositories under the txn2 organization.</p>
                 </div>
-                <span class="stack__tag">+ more</span>
                 <span class="stack__year" aria-hidden="true">↗</span>
             </li>
-        </ol>
+        </ul>
     </section>
 
     {{/* ABOUT */}}
@@ -376,15 +360,15 @@ flowchart TD
             securityLevel: 'strict',
             theme: 'base',
             themeVariables: {
-                background:         '#15140F',
-                primaryColor:       '#15140F',
-                primaryTextColor:   '#ECE3CE',
-                primaryBorderColor: '#3A3830',
-                secondaryColor:     '#1B1A15',
-                tertiaryColor:      '#15140F',
-                lineColor:          '#968F80',
-                textColor:          '#ECE3CE',
-                fontFamily:         '"JetBrains Mono", ui-monospace, monospace',
+                background:         '#2F3640',
+                primaryColor:       '#2F3640',
+                primaryTextColor:   '#EDF1F5',
+                primaryBorderColor: '#47515C',
+                secondaryColor:     '#2F3640',
+                tertiaryColor:      '#2F3640',
+                lineColor:          '#8A95A0',
+                textColor:          '#EDF1F5',
+                fontFamily:         '"Geist Mono", ui-monospace, monospace',
                 fontSize:           '13px'
             },
             flowchart: { curve: 'basis', padding: 16 }

@@ -3,21 +3,6 @@
 (function () {
     'use strict';
 
-    /* ── live UTC clock for the rails ─────────────────────────── */
-    const clocks = document.querySelectorAll('[data-clock]');
-    if (clocks.length) {
-        const tick = () => {
-            const now = new Date();
-            const hh = String(now.getUTCHours()).padStart(2, '0');
-            const mm = String(now.getUTCMinutes()).padStart(2, '0');
-            const ss = String(now.getUTCSeconds()).padStart(2, '0');
-            const txt = `${hh}:${mm}:${ss} UTC`;
-            clocks.forEach(el => { el.textContent = txt; });
-        };
-        tick();
-        setInterval(tick, 1000);
-    }
-
     /* ── on-scroll reveal (cheap IntersectionObserver) ────────── */
     const reveal = document.querySelectorAll('.section, .flagship__card, .mcp__card, .stack__row');
     if ('IntersectionObserver' in window) {
