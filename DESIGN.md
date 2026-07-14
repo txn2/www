@@ -5,35 +5,35 @@ name: txn2
 description: Visual identity for txn2.com and reference for any sibling site that wants to adopt the same look. The aesthetic is a dark engineering field-notebook, not a marketing page.
 
 colors:
-  ink:        "#0B0B09"
-  ink-2:      "#131310"
-  ink-3:      "#1B1A15"
-  rule:       "#2A2922"
-  rule-2:     "#3A3830"
-  paper:      "#ECE3CE"
-  paper-dim:  "#C9C0AB"
-  mute:       "#968F80"
-  mute-2:     "#5A554B"
-  signal:     "#FF5A1F"
-  signal-2:   "#FF8A4C"
-  acid:       "#E1FF6E"
-  cool:       "#6FE1FF"
+  ink:        "#1E232A"
+  ink-2:      "#262C34"
+  ink-3:      "#2F3640"
+  rule:       "#3A424C"
+  rule-2:     "#47515C"
+  paper:      "#EDF1F5"
+  paper-dim:  "#C4CCD4"
+  mute:       "#8A95A0"
+  mute-2:     "#5C6670"
+  signal:     "#4FC7E6"
+  signal-2:   "#7FD6EC"
+  acid:       "#9BCB86"
+  cool:       "#8FB6D6"
 
 typography:
   serif:
-    fontFamily: "Fraunces, 'Times New Roman', serif"
+    fontFamily: "Geist Mono, ui-monospace, 'SF Mono', Menlo, monospace"
     weights:    [300, 400, 700]
-    italic:     true
-    use:        "display, hero, section titles, drop caps, italic emphasis"
+    italic:     false
+    use:        "display, hero, section titles"
   sans:
-    fontFamily: "'Instrument Sans', -apple-system, 'Helvetica Neue', sans-serif"
+    fontFamily: "Geist, -apple-system, 'Helvetica Neue', sans-serif"
     weights:    [400, 700]
     use:        "body, lede, lists, footer text"
   mono:
-    fontFamily: "'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace"
+    fontFamily: "Geist Mono, ui-monospace, 'SF Mono', Menlo, monospace"
     weights:    [400, 700]
     use:        "rail, ID stamps, labels, terminal, ticker, footer mono"
-  google-fonts: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..700&display=swap"
+  google-fonts: "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap"
 
 spacing:
   measure: "64ch"
@@ -69,17 +69,17 @@ components:
     border:         "1px solid {colors.rule}"
     rounded:        "0"
     shadow:         "none"
-    accent:         "1px signal-orange line on top, animates from 56px to 100% on hover"
+    accent:         "1px signal-cyan line on top, animates from 56px to 100% on hover"
 ---
 
 ## Overview
 
-txn2.com is the canonical visual identity for the txn2 organization's open source components. The aesthetic is dark, technical, editorial: a warm-black canvas with a single signal-orange accent, an italic serif display paired with a refined sans body and a monospace label voice, framed by a low-opacity engineering blueprint grid and corner crosshairs. It should read as an engineering field-notebook, not a marketing site.
+txn2.com is the canonical visual identity for the txn2 organization's open source components. The aesthetic is dark, technical, editorial: a graphite canvas with a single signal-cyan accent, a mono display paired with a refined sans body and a monospace label voice, framed by a low-opacity engineering blueprint grid and corner crosshairs. It should read as an engineering field-notebook, not a marketing site.
 
 Three commitments shape every decision:
 
-1. Restraint with the accent. Signal orange (`#FF5A1F`) is the only saturated colour. It marks state, focus, primary CTA, and one detail per surface. Never a background, never large fills.
-2. Type as the main visual element. Fraunces italic at display sizes carries the page; everything else is quiet so the type can speak.
+1. Restraint with the accent. The signal cyan (`#4FC7E6`) is the only saturated colour. It marks state, focus, primary CTA, and one detail per surface. Never a background, never large fills.
+2. Type as the main visual element. Geist Mono at display sizes carries the page; everything else is quiet so the type can speak.
 3. Information density without clutter. Section indices, ID stamps, monospace metadata, blueprint grid, ticker, and the technical-journal voice carry density without ornament.
 
 This file is the canonical source. The W3C DTCG-compliant sidecar is `tokens.json` at the repo root.
@@ -90,55 +90,55 @@ The palette is a single warm-dark scale plus one signal accent and two reserve a
 
 | Token       | Hex        | Use |
 |-------------|------------|-----|
-| `ink`       | `#0B0B09`  | Page canvas. Body background. Selection text. |
-| `ink-2`     | `#131310`  | Card surface, body gradient endpoint. |
-| `ink-3`     | `#1B1A15`  | Mermaid background, schema panels, hover gradients. |
-| `rule`      | `#2A2922`  | Subtle borders, dashed dividers. |
-| `rule-2`    | `#3A3830`  | Stronger borders, button outlines. |
-| `paper`     | `#ECE3CE`  | Body text. Selection background. Outline-stroke colour for the hero. |
-| `paper-dim` | `#C9C0AB`  | Secondary body text. |
-| `mute`      | `#968F80`  | Muted text, mono labels. WCAG AA on `ink` at small sizes (5.79:1). |
-| `mute-2`    | `#5A554B`  | Crosshair lines, footer base, dot separators. |
-| `signal`    | `#FF5A1F`  | The one accent. Focus ring, primary CTA, links on hover, version stamp, drop cap, terminal prompt `$`. |
-| `signal-2`  | `#FF8A4C`  | Hover state for `signal`. |
-| `acid`      | `#E1FF6E`  | Terminal success ticks only. Never UI chrome. |
-| `cool`      | `#6FE1FF`  | Reserved. Currently unused. |
+| `ink`       | `#1E232A`  | Page canvas. Body background. Selection text. |
+| `ink-2`     | `#262C34`  | Card surface, body gradient endpoint. |
+| `ink-3`     | `#2F3640`  | Mermaid background, schema panels, hover gradients. |
+| `rule`      | `#3A424C`  | Subtle borders, dashed dividers. |
+| `rule-2`    | `#47515C`  | Stronger borders, button outlines. |
+| `paper`     | `#EDF1F5`  | Body text. Selection background. Outline-stroke colour for the hero. |
+| `paper-dim` | `#C4CCD4`  | Secondary body text. |
+| `mute`      | `#8A95A0`  | Muted text, mono labels. WCAG AA on `ink` at small sizes (5.79:1). |
+| `mute-2`    | `#5C6670`  | Crosshair lines, footer base, dot separators. |
+| `signal`    | `#4FC7E6`  | The one accent. Focus ring, primary CTA, links on hover, version stamp, terminal prompt `$`. |
+| `signal-2`  | `#7FD6EC`  | Hover state for `signal`. |
+| `acid`      | `#9BCB86`  | Terminal success ticks only (muted green). Never UI chrome. |
+| `cool`      | `#8FB6D6`  | Reserved (cool blue-grey). Currently unused. |
 
 Rules:
 
 - Body copy is `paper` on `ink`. Secondary copy is `paper-dim`. Muted metadata is `mute`. Anything below `mute` reads as decorative; do not put real information there.
 - Never put `paper-dim` text under 14px. Drop to `mute` instead, which is calibrated for small-text contrast.
-- The signal orange is sparing. If a surface has more than one orange element above the fold, drop one.
+- The signal cyan is sparing. If a surface has more than one accented element above the fold, drop one.
 - Selection inverts: `signal` background, `ink` text.
 
 ## Typography
 
 Three families, no exceptions.
 
-- **Fraunces** (Google Fonts variable, `opsz 9..144`, `wght 300..700`, italic + roman). Display only. Always italic at display sizes; the page identity depends on it. The `SOFT` axis was dropped to cut payload.
-- **Instrument Sans** (Google Fonts, weights `400..700`, roman only). Body, leds, lists, footer text. No italic axis loaded.
-- **JetBrains Mono** (Google Fonts, weights `400..700`, roman only). Rail, ID stamps, labels, terminal demos, ticker, footer mono. No italic axis loaded.
+- **Geist Mono** (Google Fonts, `wght 400..600`, roman). Display only, non-italic; the page identity depends on it.
+- **Geist** (Google Fonts, weights `400..700`, roman). Body, ledes, lists, footer text.
+- **Geist Mono** (Google Fonts, weights `400..600`, roman). Rail, ID stamps, labels, terminal demos, ticker, footer mono.
 
 The single `<link>` request:
 
 ```
-https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400..700&display=swap
+https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap
 ```
 
 Type scale (verified in the live site):
 
 | Role            | Family   | Weight | Size                              | Notes |
 |-----------------|----------|--------|-----------------------------------|-------|
-| Hero display    | Fraunces | 300    | `clamp(60px, 12.5vw, 220px)`      | italic, `opsz 144`, `letter-spacing -0.04em`, `line-height 0.92` |
-| Section title   | Fraunces | 300    | `clamp(36px, 5.5vw, 76px)`        | `letter-spacing -0.025em`, `line-height 1.0` |
-| Coda statement  | Fraunces | 300    | `clamp(28px, 3.6vw, 52px)`        | `letter-spacing -0.02em` |
-| Card name       | Fraunces | 300    | `clamp(48px, 5vw, 80px)`          | `line-height 0.95`, `opsz 144` |
-| Stack row name  | Fraunces | 400    | `clamp(24px, 2.5vw, 34px)`        | italic |
-| Body            | Instrument Sans | 400 | `17px`                          | `line-height 1.55` |
-| Lede            | Instrument Sans | 400 | `clamp(15px, 1.1vw, 18px)`      | `line-height 1.6` |
-| Mono label      | JetBrains Mono  | 700 | `11px`                          | `letter-spacing 0.18em`, uppercase |
-| Mono body       | JetBrains Mono  | 400 | `13px`                          | `letter-spacing 0.04em` |
-| Terminal body   | JetBrains Mono  | 400 | `12.5px`                        | `line-height 1.7` |
+| Hero display    | Geist Mono | 500    | `clamp(28px, 4vw, 64px)`          | `letter-spacing -0.02em`, `line-height 1.04` |
+| Section title   | Geist Mono | 600    | `clamp(28px, 3.8vw, 52px)`        | `letter-spacing -0.02em`, `line-height 1.08` |
+| Coda statement  | Geist Mono | 500    | `clamp(14px, 1.05vw, 16px)`       | reading size, `line-height 1.6` |
+| Card name       | Geist Mono | 600    | `clamp(30px, 3.4vw, 48px)`        | `line-height 1.0` |
+| Stack row name  | Geist Mono | 600    | `clamp(22px, 2.2vw, 30px)`        | `line-height 1.1` |
+| Body            | Geist | 400 | `17px`                          | `line-height 1.55` |
+| Lede            | Geist | 400 | `clamp(15px, 1.1vw, 18px)`      | `line-height 1.6` |
+| Mono label      | Geist Mono  | 700 | `11px`                          | `letter-spacing 0.18em`, uppercase |
+| Mono body       | Geist Mono  | 400 | `13px`                          | `letter-spacing 0.04em` |
+| Terminal body   | Geist Mono  | 400 | `12.5px`                        | `line-height 1.7` |
 
 Class anchors (grep `static/css/site.css`): `.hero__display`, `.section__title`, `.coda__big`, `.flagship__name`, `.stack__name`, `.hero__lede`, `.section__index`, `.terminal__body`.
 
@@ -218,16 +218,16 @@ Each entry below names the canonical class, lists its key tokens, and gives one 
 Sticky header. Three-column grid (`brand | meta | nav`), backdrop-blur, monospace, lowercase, 12px.
 
 - **Background** `rgba(11,11,9,0.72)` with `backdrop-filter: blur(14px) saturate(140%)`.
-- **Brand** `◐` mark (signal orange, slow spin) + Fraunces italic 22px name + middle-dot separator + paper-dim subtitle.
+- **Brand** `◐` mark (signal cyan, slow spin) + Geist Mono 22px name + middle-dot separator + paper-dim subtitle.
 - **Meta** centre slot: release stamp, dot, UTC clock, dot, location.
 - **Nav** lowercase mono links, ending with a `.rail__cta` solid signal CTA.
 
 Do: keep the meta strip ornamental. Hide it below 1080px.
 Don't: add more than four nav items. The rail is not a sitemap.
 
-### `.hero` (three-row Fraunces display)
+### `.hero` (three-row Geist Mono display)
 
-Three rows with hand-tuned indents. Italic outer rows, outline (`-webkit-text-stroke`) middle row.
+Three rows with hand-tuned indents. Mono outer rows, outline (`-webkit-text-stroke`) middle row.
 
 ```html
 <h1 class="hero__display">
@@ -244,7 +244,7 @@ This indent-asymmetry variant is reserved for the txn2.com org landing. Every pr
 
 ### `.hero__main` and `.hero__mark` (project symbol + display)
 
-Project sites pair the typographic display with a square geometric symbol mark on its left. `.hero__main` is a flex container; `.hero__mark` holds the inline SVG glyph; `.hero__display` retains the three-row Fraunces stack but drops the asymmetric indents (the symbol takes the role of the visual anchor).
+Project sites pair the typographic display with a square geometric symbol mark on its left. `.hero__main` is a flex container; `.hero__mark` holds the inline SVG glyph; `.hero__display` retains the three-row Geist Mono stack but drops the asymmetric indents (the symbol takes the role of the visual anchor).
 
 ```html
 <div class="hero__main">
@@ -294,21 +294,21 @@ Symbol contract:
 - On `.hero__mark:hover`, `transform: rotate(-8deg) scale(1.03);` over `0.45s ease` and the breath accelerates to `2.2s`.
 - `prefers-reduced-motion: reduce` cancels the breath.
 
-Do: keep one accent shape per symbol so the single-signal-orange rule holds.
+Do: keep one accent shape per symbol so the single-signal-cyan rule holds.
 Don't: use a typographic logotype in `.hero__mark`. The mark is geometric. Wordmarks live in the rail and in `.hero__display`.
 
 The mark file lives at `docs/images/PROJECT-symbol.svg` (mkdocs project sites) or `static/images/PROJECT-symbol.svg` (Hugo). Strip width/height from the file root and rely on viewBox so the mark scales cleanly to any container.
 
 ### `.flagship__card` (kubefwd, txeh)
 
-Used for the two utility cards. Top accent line in signal orange grows from 56px to 100% on hover. No shadow.
+Used for the two utility cards. Top accent line in signal cyan grows from 56px to 100% on hover. No shadow.
 
 - `padding: 36px 36px 28px`
 - `background: var(--ink-2)`
 - `border: 1px solid var(--rule)`
 - `:hover` `border-color: var(--rule-2)` and `transform: translateY(-3px)`
 
-Internal slots: `flagship__head` (mono ID stamp + Fraunces name + tag), `flagship__body` (sans paragraph), `flagship__demo` (terminal block), `flagship__foot` (CTA buttons separated by 12px gap).
+Internal slots: `flagship__head` (mono ID stamp + Geist Mono name + tag), `flagship__body` (sans paragraph), `flagship__demo` (terminal block), `flagship__foot` (CTA buttons separated by 12px gap).
 
 Do: include a working terminal demo in `flagship__demo`. Real commands.
 Don't: invent CLI output. If a command has no deterministic output, just show the invocation.
@@ -325,15 +325,15 @@ mermaid.initialize({
   securityLevel: 'strict',
   theme: 'base',
   themeVariables: {
-    background:         '#15140F',
-    primaryColor:       '#15140F',
-    primaryTextColor:   '#ECE3CE',
-    primaryBorderColor: '#3A3830',
-    secondaryColor:     '#1B1A15',
-    tertiaryColor:      '#15140F',
-    lineColor:          '#968F80',
-    textColor:          '#ECE3CE',
-    fontFamily:         '"JetBrains Mono", ui-monospace, monospace',
+    background:         '#2F3640',
+    primaryColor:       '#2F3640',
+    primaryTextColor:   '#EDF1F5',
+    primaryBorderColor: '#47515C',
+    secondaryColor:     '#2F3640',
+    tertiaryColor:      '#2F3640',
+    lineColor:          '#8A95A0',
+    textColor:          '#EDF1F5',
+    fontFamily:         '"Geist Mono", ui-monospace, monospace',
     fontSize:           '13px'
   },
   flowchart: { curve: 'basis', padding: 16 }
@@ -341,7 +341,7 @@ mermaid.initialize({
 await mermaid.run({ querySelector: '.mermaid' });
 ```
 
-Highlight one node per diagram with `classDef accent fill:#15140F,stroke:#FF5A1F,color:#ECE3CE` and a `class XYZ accent` line.
+Highlight one node per diagram with `classDef accent fill:#2F3640,stroke:#4FC7E6,color:#EDF1F5` and a `class XYZ accent` line.
 
 Do: use Mermaid for any architecture diagram.
 Don't: use ASCII art in `<pre>` blocks. ASCII does not scale, does not respond, does not survive layout changes.
@@ -357,7 +357,7 @@ The only component that takes elevation.
 
 Inside, the macOS-style traffic-light dots are decorative (`.terminal__bar span` x3, red/yellow/green). The `<pre class="terminal__body">` uses three colour classes:
 
-- `.t-prompt`  signal orange (the `$` prompt).
+- `.t-prompt`  signal cyan (the `$` prompt).
 - `.t-ok`      acid lime (success ticks).
 - `.t-mute`    paper-dim grey (info/comments).
 
@@ -366,7 +366,7 @@ Inside, the macOS-style traffic-light dots are decorative (`.terminal__bar span`
 Three variants:
 
 - `.btn` outline. 12px mono, uppercase, `rule-2` border, transparent background. Inverts on hover (paper bg, ink text).
-- `.btn--accent` solid signal-orange fill, ink text. Used for primary CTAs.
+- `.btn--accent` solid signal-cyan fill, ink text. Used for primary CTAs.
 - `.btn--big` paper background, ink text, 18px padding, `font-weight: 700`. Used for the closing GitHub CTA.
 
 Do: use one `.btn--accent` per surface. The accent is loud.
@@ -374,25 +374,25 @@ Don't: replace `.btn` with a custom anchor element. The keyboard focus styles ar
 
 ### `.stack__row` (other components list)
 
-Numbered list rows in a 4-column grid (`80px 1fr 130px 40px`) with a Fraunces italic project name, `mute` description, monospace category tag, and an arrow indicator. Hover slides the content right, brightens the name and arrow to signal orange.
+Numbered list rows in a 4-column grid (`1fr auto`) with a Geist Mono project name, `mute` description, monospace category tag, and an arrow indicator. Hover slides the content right, brightens the name and arrow to signal cyan.
 
 Do: keep entries to one short factual sentence each.
 Don't: editorialise. The stack is a registry, not a brochure.
 
 ### `.coda` and `.footer`
 
-The closing `coda` is a single block of Fraunces 300 italic on a left-border signal accent, followed by buttons for the canonical outbound links. The footer is a five-column grid (`about / txn2 / sponsors / craig / build`) collapsing 5 → 3 → 2 → 1 across the breakpoints. Footer mono labels are signal orange. Footer body text is `paper-dim` on `ink`.
+The closing `coda` is a single block of Geist Mono 500 on a left-border signal accent, followed by buttons for the canonical outbound links. The footer is a five-column grid (`about / txn2 / sponsors / craig / build`) collapsing 5 → 3 → 2 → 1 across the breakpoints. Footer mono labels are signal cyan. Footer body text is `paper-dim` on `ink`.
 
 ## Do's and Don'ts
 
 Design rules that overrule taste:
 
 - **No card shadows.** The terminal is the only elevated component.
-- **No purple gradients.** No "AI-generated" colour schemes. Warm-black plus signal-orange. Period.
+- **No purple gradients.** No "AI-generated" colour schemes. Warm-black plus signal-cyan. Period.
 - **No centred hero.** The page is asymmetric and left-aligned on purpose.
 - **No all-caps body text.** Uppercase is reserved for mono labels.
 - **Blueprint grid stays at opacity 0.04.** It is a texture, not a feature.
-- **One signal-orange element above the fold per surface.** If you find yourself adding a second, find a way to remove the first.
+- **One signal-cyan element above the fold per surface.** If you find yourself adding a second, find a way to remove the first.
 - **Section indices use `§ 01 / title`.** Never the U+2014 character between number and title.
 - **Mermaid for architecture diagrams.** Never ASCII art.
 - **Skip-to-content link and `:focus-visible` outlines on every interactive element.** No exceptions.
@@ -467,11 +467,11 @@ Every page emits a `SoftwareApplication` block. Search engines dedupe across pag
 
 Every project ships a `1200 x 630` PNG OG card at `docs/images/PROJECT-og.png`. The card mirrors the homepage hero, not a screenshot of the app. Composition:
 
-- Warm-black canvas (`#0B0B09`) with the same subtle warm-tint radial wash and 60px blueprint grid at `0.04` opacity used by the rail.
-- Crosshair ticks at all four corners (`#5A554B`, 28px arms).
-- Top rail strip: Fraunces italic project name + JetBrains Mono subtitle on the left, signal-orange `TXN2 / OPEN SOURCE` capsule on the right, 1px rule below.
-- Centre: project symbol mark on the left at ~280px square (the `.hero__mark` glyph; paper linework + signal-orange accent), three-row Fraunces display on the right (`mcp-s3` / `object storage` / `for ai.`) with the middle row as a `-webkit-text-stroke` outline.
-- Bottom strip: 1px rule, signal-orange registration tick + JetBrains Mono mono caption (`APACHE 2.0  ·  COMPOSABLE MCP SERVER  ·  GO  ·  READ-ONLY BY DEFAULT`) on the left, signal-orange `PROJECT.TXN2.COM ↗` on the right.
+- Warm-black canvas (`#1E232A`) with the same subtle warm-tint radial wash and 60px blueprint grid at `0.04` opacity used by the rail.
+- Crosshair ticks at all four corners (`#5C6670`, 28px arms).
+- Top rail strip: Geist Mono project name + Geist Mono subtitle on the left, signal-cyan `TXN2 / OPEN SOURCE` capsule on the right, 1px rule below.
+- Centre: project symbol mark on the left at ~280px square (the `.hero__mark` glyph; paper linework + signal-cyan accent), three-row Geist Mono display on the right (`mcp-s3` / `object storage` / `for ai.`) with the middle row as a `-webkit-text-stroke` outline.
+- Bottom strip: 1px rule, signal-cyan registration tick + Geist Mono mono caption (`APACHE 2.0  ·  COMPOSABLE MCP SERVER  ·  GO  ·  READ-ONLY BY DEFAULT`) on the left, signal-cyan `PROJECT.TXN2.COM ↗` on the right.
 
 The card is authored as an SVG (`docs/images/PROJECT-og.svg`) and rasterised to PNG at 1200 x 630 with `rsvg-convert`. Both files ship; the PNG is what social platforms fetch, the SVG is the source of truth.
 
@@ -479,7 +479,7 @@ The card is authored as an SVG (`docs/images/PROJECT-og.svg`) and rasterised to 
 rsvg-convert -w 1200 -h 630 -o docs/images/PROJECT-og.png docs/images/PROJECT-og.svg
 ```
 
-Fonts in the SVG: declare `font-family="Fraunces, Georgia, serif"` and `font-family="JetBrains Mono, Menlo, monospace"` so rasterisation falls back gracefully when the design fonts are not installed locally. Do not embed full font files in the SVG; the PNG already captures the rendered glyphs.
+Fonts in the SVG: declare `font-family="Geist Mono, Georgia, serif"` and `font-family="Geist Mono, Menlo, monospace"` so rasterisation falls back gracefully when the design fonts are not installed locally. Do not embed full font files in the SVG; the PNG already captures the rendered glyphs.
 
 ### `llms.txt`
 
