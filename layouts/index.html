@@ -31,66 +31,112 @@
         </nav>
     </header>
 
-    {{/* HERO */}}
+    {{/* HERO — component datasheet / engineering title block */}}
     <section class="hero">
-        <div class="hero__stamp">
-            <p class="hero__stamp__line">org / txn2</p>
-            <p class="hero__stamp__line">est. 2017</p>
-            <p class="hero__stamp__line">deasil works · plexara</p>
-            <p class="hero__stamp__line">los angeles, ca</p>
-        </div>
+        <article class="sheet">
+            <span class="sheet__reg sheet__reg--tl" aria-hidden="true"></span>
+            <span class="sheet__reg sheet__reg--tr" aria-hidden="true"></span>
+            <span class="sheet__reg sheet__reg--bl" aria-hidden="true"></span>
+            <span class="sheet__reg sheet__reg--br" aria-hidden="true"></span>
 
-        <h1 class="hero__display">
-            <span class="hero__row hero__row--1">
-                <em class="serif">txn2</em>
-            </span>
-            <span class="hero__row hero__row--2">
-                <span class="outline">open source</span>
-            </span>
-            <span class="hero__row hero__row--3">
-                <em class="serif">components.</em>
-            </span>
-        </h1>
+            {{/* title bar */}}
+            <header class="sheet__bar">
+                <span class="sheet__pn">TXN2&#8209;OSS</span>
+                <span class="sheet__doc">open&nbsp;source&nbsp;components <b>·</b> datasheet</span>
+                <span class="sheet__rev">rev&nbsp;{{ .Site.Params.version | default "dev" }}</span>
+            </header>
 
-        <div class="hero__intro">
-            <p class="hero__lede">
-                txn2 is an open source organization for components developed by <strong>Craig Johnston</strong>, sponsored by <a href="https://deasil.works">Deasil Works, Inc.</a> and <a href="https://plexara.io">Plexara</a>. Includes Model Context Protocol servers, command-line tools, and Go libraries covering the modern data stack, Kubernetes networking, and host-file management.
-            </p>
-            <p class="hero__lede hero__lede--muted">
-                All components are released on <a href="https://github.com/txn2">GitHub</a> under the MIT or Apache 2.0 license.
-            </p>
-        </div>
+            <div class="sheet__body">
+                {{/* left column: designation, abstract, spec table, actions */}}
+                <div class="sheet__lead">
+                    <p class="sheet__field">designation</p>
+                    <h1 class="sheet__name">open&nbsp;source <em>components</em></h1>
 
-        <aside class="hero__ticker" aria-hidden="true">
-            <div class="ticker">
-                <div class="ticker__track">
-                    <span>mcp-data-platform</span><span>·</span>
-                    <span>mcp-trino</span><span>·</span>
-                    <span>mcp-s3</span><span>·</span>
-                    <span>mcp-datahub</span><span>·</span>
-                    <span>kubefwd</span><span>·</span>
-                    <span>txeh</span><span>·</span>
-                    <span>portpxy</span><span>·</span>
-                    <span>jwtpxy</span><span>·</span>
-                    <span>amp</span><span>·</span>
-                    <span>rxtx</span><span>·</span>
-                    <span>asws</span><span>·</span>
-                    <span>mcp-common</span><span>·</span>
-                    <span>mcp-data-platform</span><span>·</span>
-                    <span>mcp-trino</span><span>·</span>
-                    <span>mcp-s3</span><span>·</span>
-                    <span>mcp-datahub</span><span>·</span>
-                    <span>kubefwd</span><span>·</span>
-                    <span>txeh</span><span>·</span>
-                    <span>portpxy</span><span>·</span>
-                    <span>jwtpxy</span><span>·</span>
-                    <span>amp</span><span>·</span>
-                    <span>rxtx</span><span>·</span>
-                    <span>asws</span><span>·</span>
-                    <span>mcp-common</span><span>·</span>
+                    <p class="sheet__abstract">
+                        txn2 is an open source organization for components developed by <a href="https://imti.co">Craig&nbsp;Johnston</a>, sponsored by <a href="https://deasil.works">Deasil&nbsp;Works,&nbsp;Inc.</a> and <a href="https://plexara.io">Plexara</a>. Model Context Protocol servers, CLI tools, and Go libraries across the modern data stack, Kubernetes networking, and host&#8209;file management.
+                    </p>
+
+                    <dl class="spec">
+                        <div class="spec__row"><dt>mcp servers</dt><dd>04</dd></div>
+                        <div class="spec__row"><dt>utilities</dt><dd>02</dd></div>
+                        <div class="spec__row"><dt>components</dt><dd>06</dd></div>
+                        <div class="spec__row"><dt>established</dt><dd>2017</dd></div>
+                        <div class="spec__row"><dt>license</dt><dd>MIT / Apache&#8209;2.0</dd></div>
+                        <div class="spec__row"><dt>origin</dt><dd>los&nbsp;angeles, ca</dd></div>
+                    </dl>
+
+                    <div class="sheet__actions">
+                        <a class="btn btn--accent" href="#mcp">browse components ↓</a>
+                        <a class="btn" href="https://github.com/txn2">github.com/txn2 ↗</a>
+                    </div>
                 </div>
+
+                {{/* right column: fig.1, the txn2 IC pinout — every pin is a component */}}
+                <figure class="chip">
+                    <svg class="chip__svg" viewBox="0 0 460 360" role="img" aria-label="Schematic of txn2 as a 12-pin integrated circuit; each pin is an open source component: mcp-data-platform, mcp-s3, mcp-trino, mcp-datahub, kubefwd, txeh, portpxy, jwtpxy, amp, rxtx, asws, mcp-common.">
+                        {{/* left pin legs + labels (pins 1-6, top to bottom) */}}
+                        <g class="chip__pins">
+                            {{/* row ys: 70 118 166 214 262 310 */}}
+                            <g class="chip__pin"><line x1="150" y1="70"  x2="176" y2="70"/><text class="chip__lab" x="144" y="74" text-anchor="end">mcp-data-platform</text><text class="chip__no" x="184" y="74">1</text></g>
+                            <g class="chip__pin"><line x1="150" y1="118" x2="176" y2="118"/><text class="chip__lab" x="144" y="122" text-anchor="end">mcp-s3</text><text class="chip__no" x="184" y="122">2</text></g>
+                            <g class="chip__pin"><line x1="150" y1="166" x2="176" y2="166"/><text class="chip__lab" x="144" y="170" text-anchor="end">mcp-trino</text><text class="chip__no" x="184" y="170">3</text></g>
+                            <g class="chip__pin"><line x1="150" y1="214" x2="176" y2="214"/><text class="chip__lab" x="144" y="218" text-anchor="end">mcp-datahub</text><text class="chip__no" x="184" y="218">4</text></g>
+                            <g class="chip__pin"><line x1="150" y1="262" x2="176" y2="262"/><text class="chip__lab" x="144" y="266" text-anchor="end">kubefwd</text><text class="chip__no" x="184" y="266">5</text></g>
+                            <g class="chip__pin"><line x1="150" y1="310" x2="176" y2="310"/><text class="chip__lab" x="144" y="314" text-anchor="end">txeh</text><text class="chip__no" x="184" y="314">6</text></g>
+
+                            {{/* right pin legs + labels (pins 7-12, bottom to top) */}}
+                            <g class="chip__pin"><line x1="284" y1="310" x2="310" y2="310"/><text class="chip__lab" x="316" y="314" text-anchor="start">portpxy</text><text class="chip__no" x="276" y="314" text-anchor="end">7</text></g>
+                            <g class="chip__pin"><line x1="284" y1="262" x2="310" y2="262"/><text class="chip__lab" x="316" y="266" text-anchor="start">jwtpxy</text><text class="chip__no" x="276" y="266" text-anchor="end">8</text></g>
+                            <g class="chip__pin"><line x1="284" y1="214" x2="310" y2="214"/><text class="chip__lab" x="316" y="218" text-anchor="start">amp</text><text class="chip__no" x="276" y="218" text-anchor="end">9</text></g>
+                            <g class="chip__pin"><line x1="284" y1="166" x2="310" y2="166"/><text class="chip__lab" x="316" y="170" text-anchor="start">rxtx</text><text class="chip__no" x="276" y="170" text-anchor="end">10</text></g>
+                            <g class="chip__pin"><line x1="284" y1="118" x2="310" y2="118"/><text class="chip__lab" x="316" y="122" text-anchor="start">asws</text><text class="chip__no" x="276" y="122" text-anchor="end">11</text></g>
+                            <g class="chip__pin"><line x1="284" y1="70"  x2="310" y2="70"/><text class="chip__lab" x="316" y="74" text-anchor="start">mcp-common</text><text class="chip__no" x="276" y="74" text-anchor="end">12</text></g>
+                        </g>
+
+                        {{/* IC body */}}
+                        <rect class="chip__body" x="176" y="46" width="108" height="288" rx="6"/>
+                        <path class="chip__notch" d="M206 46 a24 24 0 0 1 48 0"/>
+                        <circle class="chip__dot" cx="196" cy="70" r="4.5"/>
+                        <text class="chip__mark chip__mark--1" x="230" y="176" text-anchor="middle">txn2</text>
+                        <text class="chip__mark chip__mark--2" x="230" y="200" text-anchor="middle">OSS</text>
+                    </svg>
+                    <figcaption class="chip__cap">fig.1 / txn2 open source components, 12&#8209;pin dual in&#8209;line</figcaption>
+                </figure>
             </div>
-        </aside>
+
+            {{/* bottom: bill of materials strip */}}
+            <footer class="sheet__bom" aria-hidden="true">
+                <span class="sheet__bom__tag">bom</span>
+                <div class="ticker">
+                    <div class="ticker__track">
+                        <span>mcp-data-platform</span><span>·</span>
+                        <span>mcp-trino</span><span>·</span>
+                        <span>mcp-s3</span><span>·</span>
+                        <span>mcp-datahub</span><span>·</span>
+                        <span>kubefwd</span><span>·</span>
+                        <span>txeh</span><span>·</span>
+                        <span>portpxy</span><span>·</span>
+                        <span>jwtpxy</span><span>·</span>
+                        <span>amp</span><span>·</span>
+                        <span>rxtx</span><span>·</span>
+                        <span>asws</span><span>·</span>
+                        <span>mcp-common</span><span>·</span>
+                        <span>mcp-data-platform</span><span>·</span>
+                        <span>mcp-trino</span><span>·</span>
+                        <span>mcp-s3</span><span>·</span>
+                        <span>mcp-datahub</span><span>·</span>
+                        <span>kubefwd</span><span>·</span>
+                        <span>txeh</span><span>·</span>
+                        <span>portpxy</span><span>·</span>
+                        <span>jwtpxy</span><span>·</span>
+                        <span>amp</span><span>·</span>
+                        <span>rxtx</span><span>·</span>
+                        <span>asws</span><span>·</span>
+                        <span>mcp-common</span><span>·</span>
+                    </div>
+                </div>
+            </footer>
+        </article>
     </section>
 
     {{/* MCP SERVERS */}}
